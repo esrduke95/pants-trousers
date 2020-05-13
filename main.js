@@ -62,3 +62,48 @@ const customerReviews = [
     model: "Bum Crack Insecurities"
   },
 ]
+
+const printToDom = (selector,textToPrint) => {
+  const selectedDiv = document.querySelector(`#${selector}`);
+  selectedDiv.innerHTML = textToPrint
+}
+
+const reviewCardBuilder = (arr) => {
+  let domString = "";
+  let reviewImg = "";
+  
+  // for (let i = 0; i < arr.length; i++) {
+  //   for (let j = 0; j < pants.length; j++) {
+  //     if (arr[i].model === pants[j].model) {
+  //       reviewIMG += pants[j].imgSource
+  //     }
+      
+  //   }
+    
+  // };
+
+
+  for (let i = 0; i < arr.length; i++) {
+    
+    domString += `
+    <div class="card filterDiv${arr[i].style} filterDiv${arr[i].rating}">
+      <img class="card-img-top" src="${reviewImg}" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">${arr[i].name}</h5>
+        <h6>Rating: ${arr[i].rating} out of 5</h6>
+        <p class="card-text">${arr[i].review}</p>
+        
+      </div>
+    </div>
+    `
+    
+  }
+  printToDom('reviews',domString)
+}
+
+
+const init = () => {
+  reviewCardBuilder(customerReviews)
+}
+
+init ();

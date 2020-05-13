@@ -2,6 +2,11 @@ body {
   background-color: white;
 }
 
+.reviewHeader {
+  display: flex;
+  justify-content: center;
+}
+
 .header {
   display: flex;
   justify-content: center;
@@ -41,4 +46,28 @@ a.navLinksA:hover {
 }
 a.navLinksA:active {
   color: black;
+}
+
+
+.reviewsBody {
+  align-content: center;
+  background-color: grey;
+}
+
+.card {
+  margin: 10px 10px;
+  width: 500px; 
+}
+
+.dropdowns {
+  align-content: flex-start;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+.reviews {
+  display: flex;
+  flex-flow: row;
+  flex-wrap: wrap;
+  justify-content: center;
 }
