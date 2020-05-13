@@ -54,9 +54,20 @@ a.navLinksA:active {
   background-color: grey;
 }
 
+.reviewCardContainer{
+  max-width: 1400px;
+  align-content: center;
+}
+
 .card {
   margin: 10px 10px;
-  width: 500px; 
+  width: 400px; 
+}
+
+.card img {
+  height: 500px;
+  object-fit: cover;
+
 }
 
 .dropdowns {
@@ -70,4 +81,11 @@ a.navLinksA:active {
   flex-flow: row;
   flex-wrap: wrap;
   justify-content: center;
+}
+.pageTitle {
+  color: blue;
+}
+.form-group.col-8 {
+  color:red;
+  background-color: royalblue;
 }
