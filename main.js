@@ -175,3 +175,37 @@ const customerReviews = [
     model: "Bum Crack Insecurities"
   },
 ]
+
+const printToDom = (divId, textToPrint) => {
+  const selectedDiv = document.getElementById(divId);
+  selectedDiv.innerHTML = textToPrint;
+}
+
+const buildInventoryPage = (pantsArray) => {
+  let domString = '<div class="card-deck">';
+
+    for (let i=0; i<pantsArray.length; i++) {
+
+    domString += `
+      <div class="card">
+        <img class="card-img-top" src="${pantsArray[i].imgUrl}" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">${pantsArray[i].style}: ${pantsArray[i].model}</h5>
+          <p class="card-text">${pantsArray[i].description}</p>
+        </div>
+        <div class="card-footer">
+          <small class="text-muted">$${pantsArray[i].price}</small>
+        </div>
+      </div>
+    `;
+    domString += '</div>'
+  }
+
+printToDom("inventory", domString)
+}
+
+const init = () => {
+  buildInventoryPage(pantsArray)
+}
+
+init ();
