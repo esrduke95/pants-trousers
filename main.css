@@ -70,10 +70,8 @@ a.navLinksA:active {
 
 }
 
-.dropdowns {
-  align-content: flex-start;
-  flex-wrap: wrap;
-  flex-direction: row;
+.dropdown {
+  justify-self: left;
 }
 
 .reviews {
