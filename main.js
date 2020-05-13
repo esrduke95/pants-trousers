@@ -182,20 +182,16 @@ const printToDom = (divId, textToPrint) => {
 }
 
 const buildInventoryPage = (pantsArray) => {
-  let domString = '<div class="card-deck">';
+  let domString = '';
 
     for (let i=0; i<pantsArray.length; i++) {
 
     domString += `
-      <div class="card">
-        <img class="card-img-top" src="${pantsArray[i].imgUrl}" alt="Card image cap">
-        <div class="card-body">
-          <h5 class="card-title">${pantsArray[i].style}: ${pantsArray[i].model}</h5>
-          <p class="card-text">${pantsArray[i].description}</p>
-        </div>
-        <div class="card-footer">
-          <small class="text-muted">$${pantsArray[i].price}</small>
-        </div>
+      <div class="pantsCollection">
+        <img src="${pantsArray[i].imgUrl}" alt="Card image cap">
+        <h5>${pantsArray[i].style}: ${pantsArray[i].model}</h5>
+        <p>${pantsArray[i].description}</p>
+        <h3>$${pantsArray[i].price}</h3>
       </div>
     `;
     domString += '</div>'

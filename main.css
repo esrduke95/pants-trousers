@@ -51,3 +51,29 @@ a.navLinksA:active {
 #largeOrderLink {
   
 }
+
+#inventoryDropdown {
+  display: flex;
+  margin: 30px;
+  padding: 20px;
+}
+
+.dropdown {
+  margin: 30px;
+}
+
+#inventory img {
+  height: 300px;
+  width: 175px;
+}
+
+#inventory {
+  display: flex;
+  flex-flow: wrap;
+}
+.pantsCollection {
+  width: 500px;
+  margin: none;
+  padding: none;
+  border: 1px dashed black;
+}

@@ -29,10 +29,37 @@
     </ul>
   </nav>
   
-  <h1>Inventory Page</h1>
-  <div id="inventory">
-
+  <h1 class=pageTitle>Inventory Page</h1>
+  <div id="inventoryDropdown">
+    <div class="dropdown">
+      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Filter by Style
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item" href="#">18th Century</a>
+        <a class="dropdown-item" href="#">Absurd</a>
+        <a class="dropdown-item" href="#">Cosplay</a>
+        <a class="dropdown-item" href="#">Viking</a>
+      </div>
+    </div>
+    <div class="dropdown">
+      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Filter by Size
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item" href="#">Thicc</a>
+        <a class="dropdown-item" href="#">Chonky</a>
+        <a class="dropdown-item" href="#">Absolute Unit</a>
+        <a class="dropdown-item" href="#">Big Chungus</a>
+      </div>
+    </div>
   </div>
+  <div id="inventory">
+  </div>
+  <button type="button" class="btn btn-secondary d-flex justify-content-center">Place an Order</button>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   <script src="main.js"></script>
 </body>
 </html>
