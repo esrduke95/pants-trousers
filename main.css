@@ -42,3 +42,11 @@ a.navLinksA:hover {
 a.navLinksA:active {
   color: black;
 }
+
+.pageTitle {
+  color: blue;
+}
+.form-group.col-8 {
+  color:red;
+  background-color: royalblue;
+}
