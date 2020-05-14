@@ -2,6 +2,11 @@ body {
   background-color: white;
 }
 
+.reviewHeader {
+  display: flex;
+  justify-content: center;
+}
+
 .header {
   display: flex;
   justify-content: center;
@@ -43,14 +48,53 @@ a.navLinksA:active {
   color: black;
 }
 
+
+.reviewsBody {
+  align-content: center;
+  background-color: grey;
+}
+
+.reviewCardContainer{
+  max-width: 1400px;
+  align-content: center;
+}
+
+.card {
+  margin: 10px 10px;
+  width: 400px; 
+}
+
+.card img {
+  height: 500px;
+  object-fit: cover;
+
+}
+
+.dropdown {
+  justify-self: left;
+}
+
+.reviews {
+  display: flex;
+  flex-flow: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
 .pageTitle {
   color: black;
   text-align: center;
   font-family: 'Roboto Slab', serif;
 }
+
+.form-group.col-8 {
+  color:red;
+  background-color: royalblue;
+}
+
 #largeOrderLink {
   
 }
+<<<<<<< HEAD
 
 #inventoryDropdown {
   display: flex;
@@ -77,3 +121,5 @@ a.navLinksA:active {
   padding: none;
   border: 1px dashed black;
 }
+=======
+>>>>>>> master
