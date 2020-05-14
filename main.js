@@ -211,21 +211,37 @@ const reviewCardBuilder = (arr) => {
 
 
 const clickEvents = () => {
-  document.querySelector('oneRating').addEventListener('click', filterRatingEvent)
+  document.querySelector('#oneRating').addEventListener('click', filterRatingEvent)
+  document.querySelector('#twoRating').addEventListener('click', filterRatingEvent)
+  document.querySelector('#threeRating').addEventListener('click', filterRatingEvent)
+  document.querySelector('#fourRating').addEventListener('click', filterRatingEvent)
+  document.querySelector('#fiveRating').addEventListener('click', filterRatingEvent)
 };
 
 const filterRatingEvent = (event) => {
-  // const tempRating = [];
-  // for (let i = 0; i < customerReviews.length; i++) {
-  //   if (customerReviews[i].rating === event.target.id){
-  //     tempRating.push(customerReviews[i])
-  //   }
-    
-  // }
-  // reviewCardBuilder(tempRating)
-
-  console.log('button works?')
-}
+  const tempRating = [];
+  let rating = '' ;
+  
+  switch (event.target.id) {
+    case 'oneRating': rating = 1
+      break;
+    case 'twoRating': rating = 2     
+      break;
+    case 'threeRating': rating = 3
+      break;
+    case 'fourRating': rating = 4
+      break;
+    case 'fiveRating': rating = 5
+      break;
+  };
+  
+  for (let i = 0; i < customerReviews.length; i++) {
+    if (customerReviews[i].rating === rating){
+      tempRating.push(customerReviews[i])
+    }
+  };
+  reviewCardBuilder(tempRating)
+};
 
 const init = () => {
   reviewCardBuilder(customerReviews)
