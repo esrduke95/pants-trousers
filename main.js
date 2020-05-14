@@ -109,7 +109,7 @@ const pantsArray = [
     price: 99.99,
     id: 11,
   },
-]
+];
 
 
 
@@ -174,12 +174,12 @@ const customerReviews = [
     review: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris nec.",
     model: "Bum Crack Insecurities"
   },
-]
+];
 
 const printToDom = (selector,textToPrint) => {
   const selectedDiv = document.querySelector(`#${selector}`);
   selectedDiv.innerHTML = textToPrint
-}
+};
 
 const reviewCardBuilder = (arr) => {
   let domString = "";
@@ -207,11 +207,29 @@ const reviewCardBuilder = (arr) => {
     
   }
   printToDom('reviews',domString)
-}
+};
 
+
+const clickEvents = () => {
+  document.querySelector('oneRating').addEventListener('click', filterRatingEvent)
+};
+
+const filterRatingEvent = (event) => {
+  // const tempRating = [];
+  // for (let i = 0; i < customerReviews.length; i++) {
+  //   if (customerReviews[i].rating === event.target.id){
+  //     tempRating.push(customerReviews[i])
+  //   }
+    
+  // }
+  // reviewCardBuilder(tempRating)
+
+  console.log('button works?')
+}
 
 const init = () => {
   reviewCardBuilder(customerReviews)
-}
+  clickEvents();
+};
 
 init ();
