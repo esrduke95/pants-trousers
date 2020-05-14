@@ -81,9 +81,16 @@ a.navLinksA:active {
   justify-content: center;
 }
 .pageTitle {
-  color: blue;
+  color: black;
+  text-align: center;
+  font-family: 'Roboto Slab', serif;
 }
+
 .form-group.col-8 {
   color:red;
   background-color: royalblue;
+}
+
+#largeOrderLink {
+  
 }
