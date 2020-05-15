@@ -186,10 +186,10 @@ const customerReviews = [
   },
 ];
 
-const printToDom1 = (divId, textToPrint) => {
-  const selectedDiv1 = document.getElementById(divId);
-  selectedDiv1.innerHTML = textToPrint;
-}
+// const printToDom1 = (divId, textToPrint) => {
+//   const selectedDiv1 = document.getElementById(divId);
+//   selectedDiv1.innerHTML = textToPrint;
+// }
 
 const buildInventoryPage = (pantsArray) => {
   let domString = '';
@@ -209,7 +209,7 @@ const buildInventoryPage = (pantsArray) => {
     domString += '</div>'
   }
 
-printToDom1("inventory", domString)
+printToDom("inventory", domString)
 }
 
 const printToDom = (selector,textToPrint) => {
@@ -312,11 +312,14 @@ const displayAllReviews = (event) => {
 }
 
 const init = () => {
-  clickEvents();
-  reviewCardBuilder(customerReviews);
+  
+  if(document.getElementById('reviews')){
+    reviewCardBuilder(customerReviews);
+  }
+  if(document.getElementById('inventory')){
   buildInventoryPage(pantsArray);
-  
-  
+  }
+  clickEvents();
 };
 
 
