@@ -4,9 +4,9 @@
 let images= ["https://bit.ly/35VVjin","https://bit.ly/2YWBLJa","https://bit.ly/2WnBj4X"];
 x = 0;
 
-function changeImage()
+const changeImage=()=>
 {
-    var img = document.querySelector(".carousel");
+    let img = document.querySelector(".carousel");
     console.log(img);
     img.src = images[x];
     x++;
@@ -19,7 +19,7 @@ function changeImage()
     setTimeout("changeImage()", 10000);
 }
 
-function fadeImg(el, val, fade){
+const fadeImg=(el, val, fade)=>{
     if(fade === true){
         val--;
     }else{
@@ -31,6 +31,10 @@ function fadeImg(el, val, fade){
         setTimeout(function(){fadeImg(el, val, fade);}, 10);
     }
 }
+const imageCarousel=()=>{
+    setTimeout("changeImage()", 1000);
+}
+
 
 //pants array created with some dummy placeholder data for now
 const pantsArray = [
@@ -288,10 +292,11 @@ const filterRatingEvent = (event) => {
   reviewCardBuilder(tempRating)
 };
 
-const init = () => {
-  reviewCardBuilder(customerReviews)
+const init = () => { 
+  imageCarousel(); 
+  reviewCardBuilder(customerReviews);
   clickEvents();
-  setTimeout("changeImage()", 1000);
+  
 };
 
 init ();
