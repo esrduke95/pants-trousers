@@ -316,15 +316,15 @@ const filterRatingEvent = (event) => {
     }
   };
   reviewCardBuilder(tempRating)
-};
+}; 
 
 
+  
+  
 
-   
-const init = () => {
-
-  imageCarousel();
-  buildInventoryPage(pantsArray);
+const init = () => { 
+  imageCarousel(); 
+  buildInventoryPage(pantsArray)
   reviewCardBuilder(customerReviews);
   clickEvents();
   
