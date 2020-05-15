@@ -4,10 +4,275 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Order</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;300;500;700&family=Roboto:ital,wght@0,300;0,400;0,700;1,300;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   <link rel="stylesheet" href="main.css">
 </head>
 <body>
-  
+  <header class='header'>
+    <img  class="logo" src="https://imgur.com/IV5zTVV.png?1">
+  </header>
+
+  <nav> 
+    <ul class='navBar'>
+      <li class="navLinks">
+        <a  class="navLinksA" href="index.html">Home</a>
+      </li>
+      <li class="navLinks">
+        <a class="navLinksA" href="/inventory.html">Inventory</a>
+      </li>
+      <li class="navLinks">
+        <a class="navLinksA" href="/review.html">Reviews</a>
+      </li>
+      <li class="navLinks">
+        <a class="navLinksA" href="/order.html">Order</a>
+      </li>
+    </ul>
+  </nav>
+
+  <div class="container-fluid">
+
+    <h1 class="pageTitle">Order</h1>
+
+    <form id="orderForm">
+      <!--ROW 1-->
+      <div class="form-row">
+        <div class="form-group col-6">
+          <input type="text" class="form-control" id="inputFullName" placeholder="Full Name">
+        </div>
+        <!--Consider adding md or sm to this form for layout purposes, as well as <label>-->
+        <div class="form-group col-6">
+          <input type="text" class="form-control" id="inputAddress1" placeholder="Address Line 1">
+        </div>
+      </div>
+      <!--ROW 2-->
+      <div class="form-row">
+        <div class="form-group col-6">
+          <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+        </div>
+        <div class="form-group col-6">
+          <input type="text" class="form-control" id="inputAddress2" placeholder="Address Line 2">
+        </div>
+      </div>
+      <!--ROW 3-->
+    <!--ROW 4-->
+      <div class="form-row">
+        <div class="form-group col-2">
+          <select id="inputQuantity" class="form-control">
+            <option selected>Quantity</option>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+            <option>6</option>
+            <option>7</option>
+            <option>8</option>
+            <option>9</option>
+            <option>10</option>
+          </select>
+        </div>
+        <div class="form-group col-4">
+          <select id="inputSize" class="form-control">
+            <option selected>Size</option>
+            <option>Thicc</option>
+            <option>Chonky</option>
+            <option>Absolute Unit</option>
+            <option>Big Chungus</option>
+          </select>
+        </div>
+        <div class="form-group col-6">
+          <select id="inputStyle" class="form-control">
+            <option selected>Model</option>
+            <option>Ragnarok</option>
+            <option>Aesir</option>
+            <option>Valhalla</option>
+            <option>Plague Doctor</option>
+            <option>TransAtlantic</option>
+            <option>White Lung</option>
+            <option>Maui From Moana</option>
+            <option>Sora Fron Kingdom Hearts</option>
+            <option>Impa From the Legend of Zelda</option>
+            <option>Leg Sleeves</option>
+            <option>Not Pants</option>
+            <option>Bum Crack Insecurities</option>
+          </select>
+        </div>
+      </div>
+    <!--ROW 5-->
+    <div class="form-row">
+    </div>
+    <!--ROW 6-->
+    <div class="form-row">
+      <div class="form-group col-2">
+        <select id="inputQuantity" class="form-control">
+          <option selected>Quantity</option>
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+          <option>6</option>
+          <option>7</option>
+          <option>8</option>
+          <option>9</option>
+          <option>10</option>
+        </select>
+      </div>
+      <div class="form-group col-4">
+        <select id="inputSize" class="form-control">
+          <option selected>Size</option>
+          <option>Thicc</option>
+          <option>Chonky</option>
+          <option>Absolute Unit</option>
+          <option>Big Chungus</option>
+        </select>
+      </div>
+      <div class="form-group col-6">
+        <select id="inputStyle" class="form-control">
+          <option selected>Style</option>
+          <option>Ragnarok</option>
+          <option>Aesir</option>
+          <option>Valhalla</option>
+          <option>Plague Doctor</option>
+          <option>TransAtlantic</option>
+          <option>White Lung</option>
+          <option>Maui From Moana</option>
+          <option>Sora Fron Kingdom Hearts</option>
+          <option>Impa From the Legend of Zelda</option>
+          <option>Leg Sleeves</option>
+          <option>Not Pants</option>
+          <option>Bum Crack Insecurities</option>
+        </select>
+      </div>
+    </div>
+    <!--ROW 7-->
+    <div class="form-row">
+    </div>
+    <!--ROW 8-->
+    <div class="form-row">
+      <div class="form-group col-2">
+        <select id="inputQuantity" class="form-control">
+          <option selected>Quantity</option>
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+          <option>6</option>
+          <option>7</option>
+          <option>8</option>
+          <option>9</option>
+          <option>10</option>
+        </select>
+      </div>
+      <div class="form-group col-4">
+        <select id="inputSize" class="form-control">
+          <option selected>Size</option>
+          <option>Thicc</option>
+          <option>Chonky</option>
+          <option>Absolute Unit</option>
+          <option>Big Chungus</option>
+        </select>
+      </div>
+      <div class="form-group col-6">
+        <select id="inputStyle" class="form-control">
+          <option selected>Style</option>
+          <option>Ragnarok</option>
+          <option>Aesir</option>
+          <option>Valhalla</option>
+          <option>Plague Doctor</option>
+          <option>TransAtlantic</option>
+          <option>White Lung</option>
+          <option>Maui From Moana</option>
+          <option>Sora Fron Kingdom Hearts</option>
+          <option>Impa From the Legend of Zelda</option>
+          <option>Leg Sleeves</option>
+          <option>Not Pants</option>
+          <option>Bum Crack Insecurities</option>
+        </select>
+      </div>
+    </div>
+    <!--ROW 9-->
+    <div class="form-row">
+    </div>
+    <!--ROW 10-->
+    <div class="form-row">
+      <div class="form-group col-2">
+        <select id="inputQuantity" class="form-control">
+          <option selected>Quantity</option>
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+          <option>6</option>
+          <option>7</option>
+          <option>8</option>
+          <option>9</option>
+          <option>10</option>
+        </select>
+      </div>
+      <div class="form-group col-4">
+        <select id="inputSize" class="form-control">
+          <option selected>Size</option>
+          <option>Thicc</option>
+          <option>Chonky</option>
+          <option>Absolute Unit</option>
+          <option>Big Chungus</option>
+        </select>
+      </div>
+      <div class="form-group col-6">
+        <select id="inputStyle" class="form-control">
+          <option selected>Style</option>
+          <option>Ragnarok</option>
+          <option>Aesir</option>
+          <option>Valhalla</option>
+          <option>Plague Doctor</option>
+          <option>TransAtlantic</option>
+          <option>White Lung</option>
+          <option>Maui From Moana</option>
+          <option>Sora Fron Kingdom Hearts</option>
+          <option>Impa From the Legend of Zelda</option>
+          <option>Leg Sleeves</option>
+          <option>Not Pants</option>
+          <option>Bum Crack Insecurities</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-6 text-center">
+        <a id="largeOrderLink" href="mailto:NATE@NATE.com">*If you have a larger order, please contact us.</a>
+      </div>
+      <div class="form-group col-6">
+        <input type="text" class="form-control" id="inputCouponCode" placeholder="COUPON CODE $">
+      </div>
+    </form>
+  </div>
+  <div id="calculateButton" class="form-row">
+    <div class="form-group col-4">
+      <select id="inputShipping" class="form-control">
+        <option>First Class +$3.00</option>
+        <option>Priority +$7.95</option>
+        <option>UPS +$13.00</option>
+        <option>Priority Express +$40.00</option>
+      </select>
+    </div>
+    <div class="form-group col-4 text-center">
+      <button type="button" class="btn btn-dark">Calculate</button>
+    </div>
+    <div class="form-group col-4">
+      <input type="number" class="form-control" id="inputPlaceholder" placeholder="Order Total">
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-12 text-center">
+      <button type="button" class="btn btn-dark">Submit Order</button>
+    </div>
+  </div>
+  <!--all js links-->
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
   <script src="main.js"></script>
 </body>
 </html>
