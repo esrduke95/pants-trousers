@@ -69,7 +69,7 @@ const pantsArray = [
     sizes: ["Thicc", "Chonky", "Absolute Unit", "Big Chungus"],
     style: "Cosplay",
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-    imgUrl: "https://flic.kr/p/fnCNfU",
+    imgUrl: "https://ae01.alicdn.com/kf/HTB1daUqL8LoK1RjSZFuq6xn0XXag/Game-Kingdom-Hearts-Sora-Cosplay-Costume-Anime-Carnival-Party-Clothing-With-Shirt-Shorts-Pants-Belt-Customization.jpg",
     price: 299.99,
     id: 7,
   },
@@ -186,6 +186,32 @@ const customerReviews = [
   },
 ];
 
+const printToDom1 = (divId, textToPrint) => {
+  const selectedDiv1 = document.getElementById(divId);
+  selectedDiv.innerHTML = textToPrint;
+}
+
+const buildInventoryPage = (pantsArray) => {
+  let domString = '';
+
+    for (let i=0; i<pantsArray.length; i++) {
+      let sizes = pantsArray[i].sizes.join(", ");
+
+    domString += `
+      <div class="pantsCollection">
+        <img src="${pantsArray[i].imgUrl}" alt="Card image cap">
+        <h5>${pantsArray[i].style}: ${pantsArray[i].model}</h5>
+        <h6>Available Sizes: ${sizes}</h6>
+        <p>${pantsArray[i].description}</p>
+        <h3>$${pantsArray[i].price}</h3>
+      </div>
+    `;
+    domString += '</div>'
+  }
+
+printToDom("inventory", domString)
+}
+
 const printToDom = (selector,textToPrint) => {
   const selectedDiv = document.querySelector(`#${selector}`);
   selectedDiv.innerHTML = textToPrint
@@ -256,8 +282,10 @@ const filterRatingEvent = (event) => {
 };
 
 const init = () => {
-  reviewCardBuilder(customerReviews)
+  buildInventoryPage(pantsArray)
+  reviewCardBuilder(customerReviews);
   clickEvents();
 };
+
 
 init ();

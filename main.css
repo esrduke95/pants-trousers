@@ -93,3 +93,40 @@ a.navLinksA:active {
 #largeOrderLink {
   
 }
+
+#inventoryDropdown {
+  display: flex;
+  margin: 30px;
+  padding: 20px;
+}
+
+.dropdown {
+  margin: 30px;
+}
+
+.btn-secondary {
+  margin: 20px;
+}
+
+#inventory img {
+  height: 50%;
+  width: 50%;
+  margin: 20px
+}
+
+
+#inventory {
+  display: flex;
+  flex-flow: wrap;
+  background-color: lightgrey;
+  width: 80%;
+  margin: 50px;
+}
+.pantsCollection {
+  width: 400px;
+  margin: 40px;
+  padding: 20px;
+  text-align: center;
+  background-color: white;
+}
+
