@@ -118,61 +118,71 @@ const customerReviews = [
     name: "Jane Austen",
     rating: 1,
     review: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris nec.",
-    model: "Valhalla"
+    model: "Valhalla",
+    style: "Viking"
   },
   {
     name: "Charles Dickens",
     rating: 2,
     review: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris nec.",
-    model: "Not Pants"
+    model: "Not Pants",
+    style: "Absurd"
   },
   {
     name: "Ernest Hemingway",
     rating: 3,
     review: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris nec.",
-    model: "Kingdom Hearts"
+    model: "Kingdom Hearts",
+    style: "Cosplay"
   },
   {
     name: "Mark Twain",
     rating: 5,
     review: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris nec.",
-    model: "Aesir"
+    model: "Aesir",
+    style: "Viking"
   },
   {
     name: "George Orwell",
     rating: 4,
     review: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris nec.",
-    model: "Leg Sleeves"
+    model: "Leg Sleeves",
+    style: "Absurd"
   },
   {
     name: "Samuel Beckett",
     rating: 4,
     review: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris nec.",
-    model: "White Lung"
+    model: "White Lung",
+    style: "18th Century"
   },
   {
     name: "Oscar Wilde",
     rating: 3,
     review: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris nec.",
-    model: "TransAtlantic"
+    model: "TransAtlantic",
+    style: "18th Century"
   },
   {
     name: "Virginia Woolf",
     rating: 5,
     review: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris nec.",
-    model: "Plague Doctor"
+    model: "Plague Doctor",
+    style: "18th Century"
   },
   {
     name: "Leo Tolstoy",
     rating: 2,
     review: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris nec.",
-    model: "Ragnorok"
+    model: "Ragnorok",
+    style: "Viking"
   },
   {
     name: "John Steinbeck",
     rating: 3,
     review: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris nec.",
-    model: "Bum Crack Insecurities"
+    model: "Bum Crack Insecurities",
+    style: "Absurd"
   },
 ];
 
@@ -199,6 +209,8 @@ const reviewCardBuilder = (arr) => {
       <div class="card-body">
         <h5 class="card-title">${arr[i].name}</h5>
         <h6>Rating: ${arr[i].rating} out of 5</h6>
+        <h6>MODEL: ${arr[i].model} STYLE: ${arr[i].style}</h6>
+        
         <p class="card-text">${arr[i].review}</p>
         
       </div>
