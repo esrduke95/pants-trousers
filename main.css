@@ -1,3 +1,14 @@
 body {
   background-color: aqua;
 }
+
+img{
+  width: 400px;
+    height: 200px;
+    border-radius: 15px;
+    
+}
+
+.container{
+  text-align: center;
+}
