@@ -109,7 +109,7 @@ const pantsArray = [
     price: 99.99,
     id: 11,
   },
-]
+];
 
 
 
@@ -118,68 +118,78 @@ const customerReviews = [
     name: "Jane Austen",
     rating: 1,
     review: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris nec.",
-    model: "Valhalla"
+    model: "Valhalla",
+    style: "Viking"
   },
   {
     name: "Charles Dickens",
     rating: 2,
     review: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris nec.",
-    model: "Not Pants"
+    model: "Not Pants",
+    style: "Absurd"
   },
   {
     name: "Ernest Hemingway",
     rating: 3,
     review: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris nec.",
-    model: "Kingdom Hearts"
+    model: "Kingdom Hearts",
+    style: "Cosplay"
   },
   {
     name: "Mark Twain",
     rating: 5,
     review: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris nec.",
-    model: "Aesir"
+    model: "Aesir",
+    style: "Viking"
   },
   {
     name: "George Orwell",
     rating: 4,
     review: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris nec.",
-    model: "Leg Sleeves"
+    model: "Leg Sleeves",
+    style: "Absurd"
   },
   {
     name: "Samuel Beckett",
     rating: 4,
     review: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris nec.",
-    model: "White Lung"
+    model: "White Lung",
+    style: "18th Century"
   },
   {
     name: "Oscar Wilde",
     rating: 3,
     review: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris nec.",
-    model: "TransAtlantic"
+    model: "TransAtlantic",
+    style: "18th Century"
   },
   {
     name: "Virginia Woolf",
     rating: 5,
     review: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris nec.",
-    model: "Plague Doctor"
+    model: "Plague Doctor",
+    style: "18th Century"
   },
   {
     name: "Leo Tolstoy",
     rating: 2,
     review: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris nec.",
-    model: "Ragnorok"
+    model: "Ragnorok",
+    style: "Viking"
   },
   {
     name: "John Steinbeck",
     rating: 3,
     review: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris nec.",
-    model: "Bum Crack Insecurities"
+    model: "Bum Crack Insecurities",
+    style: "Absurd"
   },
-]
+];
 
 const printToDom = (selector,textToPrint) => {
   const selectedDiv = document.querySelector(`#${selector}`);
   selectedDiv.innerHTML = textToPrint
-}
+};
 
 const reviewCardBuilder = (arr) => {
   let domString = "";
@@ -199,6 +209,8 @@ const reviewCardBuilder = (arr) => {
       <div class="card-body">
         <h5 class="card-title">${arr[i].name}</h5>
         <h6>Rating: ${arr[i].rating} out of 5</h6>
+        <h6>MODEL: ${arr[i].model} STYLE: ${arr[i].style}</h6>
+        
         <p class="card-text">${arr[i].review}</p>
         
       </div>
@@ -207,11 +219,45 @@ const reviewCardBuilder = (arr) => {
     
   }
   printToDom('reviews',domString)
-}
+};
 
+
+const clickEvents = () => {
+  document.querySelector('#oneRating').addEventListener('click', filterRatingEvent)
+  document.querySelector('#twoRating').addEventListener('click', filterRatingEvent)
+  document.querySelector('#threeRating').addEventListener('click', filterRatingEvent)
+  document.querySelector('#fourRating').addEventListener('click', filterRatingEvent)
+  document.querySelector('#fiveRating').addEventListener('click', filterRatingEvent)
+};
+
+const filterRatingEvent = (event) => {
+  const tempRating = [];
+  let rating = '' ;
+  
+  switch (event.target.id) {
+    case 'oneRating': rating = 1
+      break;
+    case 'twoRating': rating = 2     
+      break;
+    case 'threeRating': rating = 3
+      break;
+    case 'fourRating': rating = 4
+      break;
+    case 'fiveRating': rating = 5
+      break;
+  };
+  
+  for (let i = 0; i < customerReviews.length; i++) {
+    if (customerReviews[i].rating === rating){
+      tempRating.push(customerReviews[i])
+    }
+  };
+  reviewCardBuilder(tempRating)
+};
 
 const init = () => {
   reviewCardBuilder(customerReviews)
-}
+  clickEvents();
+};
 
 init ();
