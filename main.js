@@ -21,7 +21,7 @@ const pantsArray = [
   },
   {
     model: "Valhalla",
-    sizes: ["Thicc", "Chonky", "Absolute Unit", "Big Chungus"],
+    sizes: ["Thicc", "Chonky", "Big Chungus"],
     style: "Viking",
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
     imgUrl: "https://cdn.shopify.com/s/files/1/0234/5963/products/10_04_NFL_Pants_9575-Edit.jpg?v=1570221066",
@@ -75,7 +75,7 @@ const pantsArray = [
   },
   {
     model: "Impa from The Legend of Zelda",
-    sizes: ["Thicc", "Chonky", "Absolute Unit", "Big Chungus"],
+    sizes: ["Thicc", "Chonky", "Big Chungus"],
     style: "Cosplay",
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
     imgUrl: "https://bit.ly/3fBUwHX",
@@ -213,86 +213,82 @@ const buildInventoryPage = (pantsArray) => {
 printToDom1("inventory", domString)
 }
 
-// const printToDom = (selector,textToPrint) => {
-//   const selectedDiv = document.querySelector(`#${selector}`);
-//   selectedDiv.innerHTML = textToPrint
-// };
+const printToDom = (selector,textToPrint) => {
+  const selectedDiv = document.querySelector(`#${selector}`);
+  selectedDiv.innerHTML = textToPrint
+};
 
-// const reviewCardBuilder = (arr) => {
-//   let domString = "";
+const reviewCardBuilder = (arr) => {
+  let domString = "";
   
-//   for (let i = 0; i < arr.length; i++) {
-//     let reviewImg = "";
-//     for (let j = 0; j < pantsArray.length; j++) {
-//       if (arr[i].model === pantsArray[j].model) {
-//         reviewImg += pantsArray[j].imgUrl
-//         console.log('Pants')
-//       }
+  for (let i = 0; i < arr.length; i++) {
+    let reviewImg = "";
+    for (let j = 0; j < pantsArray.length; j++) {
+      if (arr[i].model === pantsArray[j].model) {
+        reviewImg += pantsArray[j].imgUrl
+        console.log('Pants')
+      }
       
-//     }
-//     domString += `
-//     <div class="card filterDiv${arr[i].style} filterDiv${arr[i].rating}">
-//       <img class="card-img-top" src="${reviewImg}" alt="Card image cap">
-//       <div class="card-body">
-//         <h5 class="card-title">${arr[i].name}</h5>
-//         <h6>Rating: ${arr[i].rating} out of 5</h6>
-//         <h6>MODEL: ${arr[i].model} STYLE: ${arr[i].style}</h6>
+    }
+    domString += `
+    <div class="card filterDiv${arr[i].style} filterDiv${arr[i].rating}">
+      <img class="card-img-top" src="${reviewImg}" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">${arr[i].name}</h5>
+        <h6>Rating: ${arr[i].rating} out of 5</h6>
+        <h6>MODEL: ${arr[i].model} STYLE: ${arr[i].style}</h6>
         
-//         <p class="card-text">${arr[i].review}</p>
+        <p class="card-text">${arr[i].review}</p>
         
-//       </div>
-//     </div>
-//     `
+      </div>
+    </div>
+    `
     
-//   }
-//   printToDom('reviews',domString)
-// };
+  }
+  printToDom('reviews',domString)
+};
 
 
 
 
 
 const clickEvents = () => {
-  // document.querySelector('#oneRating').addEventListener('click', filterRatingEvent)
-  // document.querySelector('#twoRating').addEventListener('click', filterRatingEvent)
-  // document.querySelector('#threeRating').addEventListener('click', filterRatingEvent)
-  // document.querySelector('#fourRating').addEventListener('click', filterRatingEvent)
-  // document.querySelector('#fiveRating').addEventListener('click', filterRatingEvent)
+  document.querySelector('#oneRating').addEventListener('click', filterRatingEvent)
+  document.querySelector('#twoRating').addEventListener('click', filterRatingEvent)
+  document.querySelector('#threeRating').addEventListener('click', filterRatingEvent)
+  document.querySelector('#fourRating').addEventListener('click', filterRatingEvent)
+  document.querySelector('#fiveRating').addEventListener('click', filterRatingEvent)
   document.querySelector('#Thicc').addEventListener('click', filterInvSizeEvent);
   document.querySelector('#Chonky').addEventListener('click', filterInvSizeEvent);
+  document.querySelector('#bigChungus').addEventListener('click', filterInvSizeEvent);
+  document.querySelector('#absoluteUnit').addEventListener('click', filterInvSizeEvent);
   document.querySelector('#allSizes').addEventListener('click', filterInvSizeEvent);
-  document.querySelector('#Century').addEventListener('click', filterInvStyleEvent);
-  document.querySelector('#Absurd').addEventListener('click', filterInvStyleEvent);
-  document.querySelector('#Viking').addEventListener('click', filterInvStyleEvent);
-  document.querySelector('#Cosplay').addEventListener('click', filterInvStyleEvent);
-  document.querySelector('#allStyles').addEventListener('click', filterInvStyleEvent);
-  // document.querySelector('#18th Century').addEventListener('click', filterInvStyleEvent);
 };
 
-// const filterRatingEvent = (event) => {
-//   const tempRating = [];
-//   let rating = '' ;
+const filterRatingEvent = (event) => {
+  const tempRating = [];
+  let rating = '' ;
   
-//   switch (event.target.id) {
-//     case 'oneRating': rating = 1
-//       break;
-//     case 'twoRating': rating = 2     
-//       break;
-//     case 'threeRating': rating = 3
-//       break;
-//     case 'fourRating': rating = 4
-//       break;
-//     case 'fiveRating': rating = 5
-//       break;
-//   };
+  switch (event.target.id) {
+    case 'oneRating': rating = 1
+      break;
+    case 'twoRating': rating = 2     
+      break;
+    case 'threeRating': rating = 3
+      break;
+    case 'fourRating': rating = 4
+      break;
+    case 'fiveRating': rating = 5
+      break;
+  };
   
-//   for (let i = 0; i < customerReviews.length; i++) {
-//     if (customerReviews[i].rating === rating){
-//       tempRating.push(customerReviews[i])
-//     }
-//   };
-//   reviewCardBuilder(tempRating)
-// };
+  for (let i = 0; i < customerReviews.length; i++) {
+    if (customerReviews[i].rating === rating){
+      tempRating.push(customerReviews[i])
+    }
+  };
+  reviewCardBuilder(tempRating)
+};
 
 const filterInvSizeEvent = (event) => {
   let clickId = ""
@@ -309,14 +305,6 @@ const filterInvSizeEvent = (event) => {
     case 'absoluteUnit': clickId = "Absolute Unit"
       break;
   }
-
-  // if (clickId === "absoluteUnit") {
-  //   size = "Absolute Unit"
-  // } else if (clickId === "bigChungus") {
-  //   size = "Big Chungus"
-  // } else {
-  //   size = clickId
-  // }
 
   if (event.target.id === "allSizes") {
     buildInventoryPage(pantsArray);
@@ -335,43 +323,12 @@ const filterInvSizeEvent = (event) => {
   buildInventoryPage(tempSizeCollection)
 }
 
-const filterInvStyleEvent = (event) => {
-  const clickId = event.target.id;
-  let tempStyleCollection = [];
-  let style = "";
 
-  if (clickId === "Century") {
-    style = "18th Century"
-  } else {
-    style = clickId
-  }
-
-
-  if (clickId === "allStyles") {
-    buildInventoryPage(pantsArray);
-    return;
-  }
-
-  // if (event.target.id === "Century") {
-  //   event.target.id = "18th Century"
-  // } else {
-  //   event.target.id = event.target.id
-  // }
- 
-
-  for (let i=0; i<pantsArray.length; i++) {
-    if (pantsArray[i].style == style) {
-      tempStyleCollection.push(pantsArray[i])
-    }
-  }
-  console.log(clickId)
-  buildInventoryPage(tempStyleCollection)
-}
 
 
 const init = () => {
   buildInventoryPage(pantsArray)
-  // reviewCardBuilder(customerReviews);
+  reviewCardBuilder(customerReviews);
   clickEvents();
 };
 
