@@ -260,21 +260,21 @@ const reviewCardBuilder = (arr) => {
 
 
 const clickEvents = () => {
-  document.querySelector('#oneRating').addEventListener('click', filterRatingEvent)
-  document.querySelector('#twoRating').addEventListener('click', filterRatingEvent)
-  document.querySelector('#threeRating').addEventListener('click', filterRatingEvent)
-  document.querySelector('#fourRating').addEventListener('click', filterRatingEvent)
-  document.querySelector('#fiveRating').addEventListener('click', filterRatingEvent)
-  document.querySelector('#Thicc').addEventListener('click', filterInvSizeEvent);
-  document.querySelector('#Chonky').addEventListener('click', filterInvSizeEvent);
+  // document.querySelector('#oneRating').addEventListener('click', filterRatingEvent)
+  // document.querySelector('#twoRating').addEventListener('click', filterRatingEvent)
+  // document.querySelector('#threeRating').addEventListener('click', filterRatingEvent)
+  // document.querySelector('#fourRating').addEventListener('click', filterRatingEvent)
+  // document.querySelector('#fiveRating').addEventListener('click', filterRatingEvent)
+  // document.querySelector('#Thicc').addEventListener('click', filterInvSizeEvent);
+  // document.querySelector('#Chonky').addEventListener('click', filterInvSizeEvent);
   document.querySelector('#bigChungus').addEventListener('click', filterInvSizeEvent);
   document.querySelector('#absoluteUnit').addEventListener('click', filterInvSizeEvent);
   document.querySelector('#allSizes').addEventListener('click', filterInvSizeEvent);
-  document.querySelector('#all').addEventListener('click', displayAllReviews)
-  document.querySelector('#Viking').addEventListener('click', filterStyleReviewEvent)
-  document.querySelector('#Century').addEventListener('click', filterStyleReviewEvent)
-  document.querySelector('#Absurd').addEventListener('click', filterStyleReviewEvent)
-  document.querySelector('#Cosplay').addEventListener('click', filterStyleReviewEvent)
+  // document.querySelector('#all').addEventListener('click', displayAllReviews)
+  // document.querySelector('#Viking').addEventListener('click', filterStyleReviewEvent)
+  // document.querySelector('#Century').addEventListener('click', filterStyleReviewEvent)
+  // document.querySelector('#Absurd').addEventListener('click', filterStyleReviewEvent)
+  // document.querySelector('#Cosplay').addEventListener('click', filterStyleReviewEvent)
   document.querySelector('#Century1').addEventListener('click', filterInvStyleEvent);
   document.querySelector('#Absurd1').addEventListener('click', filterInvStyleEvent);
   document.querySelector('#Viking1').addEventListener('click', filterInvStyleEvent);
@@ -354,26 +354,26 @@ const filterInvSizeEvent = (event) => {
       tempSizeCollection.push(pant)
     }
   })
-
-
-  console.log(clickId)
-  console.log(tempSizeCollection)
   buildInventoryPage(tempSizeCollection)
 }
 
 const filterInvStyleEvent = (event) => {
-  const clickId = event.target.id;
+  
   let tempStyleCollection = [];
   let style = "";
 
-  if (clickId === "Century1") {
-    style = "18th Century"
-  } else {
-    style = clickId
+  switch (event.target.id) {
+    case 'Century1': style = "18th Century"
+      break;
+    case 'Absurd1': style = "Absurd"
+      break;
+    case 'Viking1': style = "Viking"
+      break;
+    case 'Cosplay1': style = "Cosplay"
+      break;
   }
 
-
-  if (clickId === "allStyles") {
+  if (event.target.id === "allStyles") {
     buildInventoryPage(pantsArray);
     return;
   }
@@ -383,7 +383,7 @@ const filterInvStyleEvent = (event) => {
       tempStyleCollection.push(pantsArray[i])
     }
   }
-  console.log(clickId)
+
   buildInventoryPage(tempStyleCollection)
 }
 
