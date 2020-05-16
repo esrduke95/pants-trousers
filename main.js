@@ -1,4 +1,9 @@
-console.log('this works')
+
+
+
+
+
+
 //pants array created with some dummy placeholder data for now
 const pantsArray = [
   {
@@ -286,7 +291,8 @@ const filterRatingEvent = (event) => {
     }
   };
   reviewCardBuilder(tempRating)
-};
+};  
+
 
 const filterStyleReviewEvent = (event) => {
   
@@ -311,7 +317,51 @@ const displayAllReviews = (event) => {
   reviewCardBuilder(customerReviews)
 }
 
+let images= [];
+let models= [];
+
+x = 0;
+
+const changeImage=()=>
+{
+    let img = document.querySelector(".carousel"); 
+    let model= document.querySelector(".centered");   
+    img.src = images[x];
+    model.innerHTML= models[x];    
+    x++;
+
+    if(x >= images.length){
+        x = 0;
+    } 
+
+    fadeImg(img, 1000, true);
+    setTimeout("changeImage()", 5000);
+}
+
+const fadeImg=(el, val, fade)=>{
+    if(fade === true){
+        val--;
+    }else{
+        val ++;
+    }
+
+    if(val > 0 && val < 100){
+        el.style.opacity = val / 100;
+        setTimeout(function(){fadeImg(el, val, fade);}, 10);
+    }
+}
+const imageCarousel=()=>{
+    pantsArray.forEach(pant => {
+        images.push(pant.imgUrl);
+        models.push(pant.model);
+    })
+    console.log(images);
+    setTimeout("changeImage()", 1000);
+}
+
+
 const init = () => {
+    imageCarousel(); 
   
   if(document.getElementById('reviews')){
     reviewCardBuilder(customerReviews);
@@ -320,7 +370,9 @@ const init = () => {
   buildInventoryPage(pantsArray);
   }
   clickEvents();
+  
 };
 
 
 init ();
+
