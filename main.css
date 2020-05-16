@@ -27,7 +27,7 @@ body {
 
 .navLinks {
   padding: 10px 10px; 
-  color: black;
+  
 }
 
 .navLinks:hover {
@@ -47,6 +47,9 @@ a.navLinksA:hover {
 a.navLinksA:active {
   color: black;
 }
+
+
+
 
 .reviewsBody {
   align-content: center;
@@ -94,6 +97,18 @@ a.navLinksA:active {
   
 }
 
+img{
+  width: 300px;
+    height: 300px;
+    border-radius: 15px;
+    object-fit: cover;
+    
+}
+
+.container{
+  text-align: center;
+}
+
 #inventoryDropdown {
   display: flex;
   margin: 30px;
@@ -126,4 +141,65 @@ a.navLinksA:active {
 .inventory {
   margin: 30px;
   text-align: center;
+}
+
+/* Centered text for the carousel image */
+.centered {
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.carouselContainer{
+  position: relative;
+  text-align: center;
+  color: black;
+  font-size: 2rem;
+  text-shadow: 2px 2px rgb(17, 206, 42);
+
+}
+
+footer {
+  display: flex !important;
+  flex-flow: row wrap;
+  align-items: center;
+  align-content: space-between;
+}
+
+ul.footerDThing {
+  list-style-type: none;
+  display: inline-flex;
+  padding: 0;
+}
+
+.footerLinks {
+  padding: 10px 10px;
+}
+
+a.footerLinksA:link {
+  color: black;
+}
+a.footerLinksA:visited {
+  color: black;
+}
+a.footerLinksA:hover {
+  color: black;
+  text-decoration: none;
+}
+a.footerLinksA:active {
+  color: black;
+}
+
+.address {
+  padding-left: 20px;
+}
+
+.footerdiv {
+  padding-left: 10px;
+}
+
+footer img {
+  height: 40px;
+  width: 40px;
 }

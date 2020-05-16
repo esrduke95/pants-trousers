@@ -1,4 +1,4 @@
-console.log('this works')
+
 //pants array created with some dummy placeholder data for now
 const pantsArray = [
   {
@@ -186,10 +186,17 @@ const customerReviews = [
   },
 ];
 
+
 const printToDom1 = (divId, textToPrint) => {
   const selectedDiv1 = document.getElementById(divId);
   selectedDiv1.innerHTML = textToPrint;
 }
+
+// const printToDom1 = (divId, textToPrint) => {
+//   const selectedDiv1 = document.getElementById(divId);
+//   selectedDiv1.innerHTML = textToPrint;
+// }
+
 
 const buildInventoryPage = (pantsArray) => {
   let domString = '';
@@ -216,6 +223,7 @@ printToDom1("inventory", domString)
 const printToDom = (selector,textToPrint) => {
   const selectedDiv = document.querySelector(`#${selector}`);
   selectedDiv.innerHTML = textToPrint
+  
 };
 
 const reviewCardBuilder = (arr) => {
@@ -226,7 +234,6 @@ const reviewCardBuilder = (arr) => {
     for (let j = 0; j < pantsArray.length; j++) {
       if (arr[i].model === pantsArray[j].model) {
         reviewImg += pantsArray[j].imgUrl
-        console.log('Pants')
       }
       
     }
@@ -263,9 +270,15 @@ const clickEvents = () => {
   document.querySelector('#bigChungus').addEventListener('click', filterInvSizeEvent);
   document.querySelector('#absoluteUnit').addEventListener('click', filterInvSizeEvent);
   document.querySelector('#allSizes').addEventListener('click', filterInvSizeEvent);
+  document.querySelector('#all').addEventListener('click', displayAllReviews)
+  document.querySelector('#Viking').addEventListener('click', filterStyleReviewEvent)
+  document.querySelector('#Century').addEventListener('click', filterStyleReviewEvent)
+  document.querySelector('#Absurd').addEventListener('click', filterStyleReviewEvent)
+  document.querySelector('#Cosplay').addEventListener('click', filterStyleReviewEvent)
 };
 
 const filterRatingEvent = (event) => {
+  
   const tempRating = [];
   let rating = '' ;
   
@@ -288,6 +301,26 @@ const filterRatingEvent = (event) => {
     }
   };
   reviewCardBuilder(tempRating)
+};  
+
+
+const filterStyleReviewEvent = (event) => {
+  
+  const tempStyle = [];
+  let style = "";
+
+  if (event.target.id === 'Century' ) {
+    style = "18th Century"
+  } else {
+    style = event.target.id
+  }
+  
+  for (let i = 0; i < customerReviews.length; i++) {
+    if (customerReviews[i].style === style) {
+      tempStyle.push(customerReviews[i])
+    }    
+  }
+  reviewCardBuilder(tempStyle)
 };
 
 const filterInvSizeEvent = (event) => {
@@ -323,13 +356,64 @@ const filterInvSizeEvent = (event) => {
   buildInventoryPage(tempSizeCollection)
 }
 
+const displayAllReviews = (event) => {
+  reviewCardBuilder(customerReviews)
+}
 
+let images= [];
+let models= [];
+
+x = 0;
+
+const changeImage=()=>
+{
+    let img = document.querySelector(".carousel"); 
+    let model= document.querySelector(".centered");   
+    img.src = images[x];
+    model.innerHTML= models[x];    
+    x++;
+
+    if(x >= images.length){
+        x = 0;
+    } 
+
+    fadeImg(img, 1000, true);
+    setTimeout("changeImage()", 5000);
+}
+
+const fadeImg=(el, val, fade)=>{
+    if(fade === true){
+        val--;
+    }else{
+        val ++;
+    }
+
+    if(val > 0 && val < 100){
+        el.style.opacity = val / 100;
+        setTimeout(function(){fadeImg(el, val, fade);}, 10);
+    }
+}
+const imageCarousel=()=>{
+    pantsArray.forEach(pant => {
+        images.push(pant.imgUrl);
+        models.push(pant.model);
+    })
+    console.log(images);
+    setTimeout("changeImage()", 1000);
+}
 
 
 const init = () => {
-  buildInventoryPage(pantsArray)
-  reviewCardBuilder(customerReviews);
+    imageCarousel(); 
+  
+  if(document.getElementById('reviews')){
+    reviewCardBuilder(customerReviews);
+  }
+  if(document.getElementById('inventory')){
+  buildInventoryPage(pantsArray);
+  }
   clickEvents();
+  
 };
 
 
