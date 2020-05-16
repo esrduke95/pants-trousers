@@ -1,4 +1,4 @@
-console.log('this works')
+
 //pants array created with some dummy placeholder data for now
 const pantsArray = [
   {
@@ -21,7 +21,7 @@ const pantsArray = [
   },
   {
     model: "Valhalla",
-    sizes: ["Thicc", "Chonky", "Absolute Unit", "Big Chungus"],
+    sizes: ["Thicc", "Chonky", "Big Chungus"],
     style: "Viking",
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
     imgUrl: "https://cdn.shopify.com/s/files/1/0234/5963/products/10_04_NFL_Pants_9575-Edit.jpg?v=1570221066",
@@ -75,7 +75,7 @@ const pantsArray = [
   },
   {
     model: "Impa from The Legend of Zelda",
-    sizes: ["Thicc", "Chonky", "Absolute Unit", "Big Chungus"],
+    sizes: ["Thicc", "Chonky", "Big Chungus"],
     style: "Cosplay",
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
     imgUrl: "https://bit.ly/3fBUwHX",
@@ -191,6 +191,12 @@ const customerReviews = [
 //   selectedDiv1.innerHTML = textToPrint;
 // }
 
+
+const printToDom1 = (divId, textToPrint) => {
+  const selectedDiv1 = document.getElementById(divId);
+  selectedDiv1.innerHTML = textToPrint;
+}
+
 const buildInventoryPage = (pantsArray) => {
   let domString = '';
 
@@ -198,23 +204,25 @@ const buildInventoryPage = (pantsArray) => {
       let sizes = pantsArray[i].sizes.join(", ");
 
     domString += `
-      <div class="pantsCollection">
-        <img src="${pantsArray[i].imgUrl}" alt="Card image cap">
-        <h5>${pantsArray[i].style}: ${pantsArray[i].model}</h5>
-        <h6>Available Sizes: ${sizes}</h6>
-        <p>${pantsArray[i].description}</p>
-        <h3>$${pantsArray[i].price}</h3>
-      </div>
+      <div class="card inventory" style="width: 18rem;">
+        <img class="card-img-top" src="${pantsArray[i].imgUrl}" alt="Card image cap">
+        <div class="card-body">
+          <h5>${pantsArray[i].style}: ${pantsArray[i].model}</h5>
+          <h6>Available Sizes: ${sizes}</h6>
+          <p>${pantsArray[i].description}</p>
+          <h3>$${pantsArray[i].price}</h3>
+        </div>
     `;
     domString += '</div>'
   }
 
-printToDom("inventory", domString)
+printToDom1("inventory", domString)
 }
 
 const printToDom = (selector,textToPrint) => {
   const selectedDiv = document.querySelector(`#${selector}`);
   selectedDiv.innerHTML = textToPrint
+  
 };
 
 const reviewCardBuilder = (arr) => {
@@ -252,14 +260,27 @@ const clickEvents = () => {
   document.querySelector('#threeRating').addEventListener('click', filterRatingEvent)
   document.querySelector('#fourRating').addEventListener('click', filterRatingEvent)
   document.querySelector('#fiveRating').addEventListener('click', filterRatingEvent)
+
+  document.querySelector('#Thicc').addEventListener('click', filterInvSizeEvent);
+  document.querySelector('#Chonky').addEventListener('click', filterInvSizeEvent);
+  document.querySelector('#bigChungus').addEventListener('click', filterInvSizeEvent);
+  document.querySelector('#absoluteUnit').addEventListener('click', filterInvSizeEvent);
+  document.querySelector('#allSizes').addEventListener('click', filterInvSizeEvent);
+
   document.querySelector('#all').addEventListener('click', displayAllReviews)
   document.querySelector('#Viking').addEventListener('click', filterStyleReviewEvent)
   document.querySelector('#Century').addEventListener('click', filterStyleReviewEvent)
   document.querySelector('#Absurd').addEventListener('click', filterStyleReviewEvent)
   document.querySelector('#Cosplay').addEventListener('click', filterStyleReviewEvent)
+
   document.querySelector('#submitOrderButton').addEventListener('click', submitOrderForm);
-  
-};
+ 
+  document.querySelector('#Century1').addEventListener('click', filterInvStyleEvent);
+  document.querySelector('#Absurd1').addEventListener('click', filterInvStyleEvent);
+  document.querySelector('#Viking1').addEventListener('click', filterInvStyleEvent);
+  document.querySelector('#Cosplay1').addEventListener('click', filterInvStyleEvent);
+  document.querySelector('#allStyles').addEventListener('click', filterInvStyleEvent);
+
 
 const filterRatingEvent = (event) => {
   
@@ -285,7 +306,8 @@ const filterRatingEvent = (event) => {
     }
   };
   reviewCardBuilder(tempRating)
-};
+};  
+
 
 const filterStyleReviewEvent = (event) => {
   
@@ -306,9 +328,90 @@ const filterStyleReviewEvent = (event) => {
   reviewCardBuilder(tempStyle)
 };
 
+
+const filterStyleReviewEvent = (event) => {
+  
+  const tempStyle = [];
+  let style = "";
+
+  if (event.target.id === 'Century' ) {
+    style = "18th Century"
+  } else {
+    style = event.target.id
+  }
+  
+  for (let i = 0; i < customerReviews.length; i++) {
+    if (customerReviews[i].style === style) {
+      tempStyle.push(customerReviews[i])
+    }    
+  }
+  reviewCardBuilder(tempStyle)
+};
+
+const filterInvSizeEvent = (event) => {
+  let clickId = ""
+  let tempSizeCollection = [];
+  
+
+  switch (event.target.id) {
+    case 'Chonky': clickId = "Chonky"
+      break;
+    case 'Thicc': clickId = "Thicc"
+      break;
+    case 'bigChungus': clickId = "Big Chungus"
+      break;
+    case 'absoluteUnit': clickId = "Absolute Unit"
+      break;
+  }
+
+  if (event.target.id === "allSizes") {
+    buildInventoryPage(pantsArray);
+    return
+  }
+
+  pantsArray.forEach((pant) => {
+    if (pant.sizes.includes(clickId)) {
+      tempSizeCollection.push(pant)
+    }
+  })
+  buildInventoryPage(tempSizeCollection)
+}
+
+const filterInvStyleEvent = (event) => {
+  
+  let tempStyleCollection = [];
+  let style = "";
+
+  switch (event.target.id) {
+    case 'Century1': style = "18th Century"
+      break;
+    case 'Absurd1': style = "Absurd"
+      break;
+    case 'Viking1': style = "Viking"
+      break;
+    case 'Cosplay1': style = "Cosplay"
+      break;
+  }
+
+  if (event.target.id === "allStyles") {
+    buildInventoryPage(pantsArray);
+    return;
+  }
+ 
+  for (let i=0; i<pantsArray.length; i++) {
+    if (pantsArray[i].style == style) {
+      tempStyleCollection.push(pantsArray[i])
+    }
+  }
+
+  buildInventoryPage(tempStyleCollection)
+}
+
+
 const displayAllReviews = (event) => {
   reviewCardBuilder(customerReviews)
 }
+
 
 // SD --- ORDER FORM SUBMIT BUTTON 
 
@@ -317,6 +420,53 @@ const submitOrderForm = (event) => {
 };
 
 const init = () => {
+
+let images= [];
+let models= [];
+
+x = 0;
+
+const changeImage=()=>
+{
+    let img = document.querySelector(".carousel"); 
+    let model= document.querySelector(".centered");   
+    img.src = images[x];
+    model.innerHTML= models[x];    
+    x++;
+
+    if(x >= images.length){
+        x = 0;
+    } 
+
+    fadeImg(img, 1000, true);
+    setTimeout("changeImage()", 5000);
+}
+
+const fadeImg=(el, val, fade)=>{
+    if(fade === true){
+        val--;
+    }else{
+        val ++;
+    }
+
+    if(val > 0 && val < 100){
+        el.style.opacity = val / 100;
+        setTimeout(function(){fadeImg(el, val, fade);}, 10);
+    }
+}
+const imageCarousel=()=>{
+    pantsArray.forEach(pant => {
+        images.push(pant.imgUrl);
+        models.push(pant.model);
+    })
+    console.log(images);
+    setTimeout("changeImage()", 1000);
+}
+
+
+const init = () => {
+    imageCarousel(); 
+
   
   if(document.getElementById('reviews')){
     reviewCardBuilder(customerReviews);
@@ -325,6 +475,7 @@ const init = () => {
   buildInventoryPage(pantsArray);
   }
   clickEvents();
+  
 };
 
 
