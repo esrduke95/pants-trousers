@@ -273,17 +273,17 @@ const clickEvents = () => {
     document.querySelector('#Absurd').addEventListener('click', filterStyleReviewEvent)
     document.querySelector('#Cosplay').addEventListener('click', filterStyleReviewEvent)
   }
-  
-  document.querySelector('#Thicc').addEventListener('click', filterInvSizeEvent);
-  document.querySelector('#Chonky').addEventListener('click', filterInvSizeEvent);
-  document.querySelector('#bigChungus').addEventListener('click', filterInvSizeEvent);
-  document.querySelector('#absoluteUnit').addEventListener('click', filterInvSizeEvent);
-  document.querySelector('#allSizes').addEventListener('click', filterInvSizeEvent);
-  document.querySelector('#Century1').addEventListener('click', filterInvStyleEvent);
-  document.querySelector('#Absurd1').addEventListener('click', filterInvStyleEvent);
-  document.querySelector('#Viking1').addEventListener('click', filterInvStyleEvent);
-  document.querySelector('#Cosplay1').addEventListener('click', filterInvStyleEvent);
-  document.querySelector('#allStyles').addEventListener('click', filterInvStyleEvent);
+  if(document.getElementById('inventory')){
+    document.querySelector('#Thicc').addEventListener('click', filterInvSizeEvent);
+    document.querySelector('#Chonky').addEventListener('click', filterInvSizeEvent);
+    document.querySelector('#bigChungus').addEventListener('click', filterInvSizeEvent);
+    document.querySelector('#absoluteUnit').addEventListener('click', filterInvSizeEvent);
+    document.querySelector('#allSizes').addEventListener('click', filterInvSizeEvent);
+    document.querySelector('#Century1').addEventListener('click', filterInvStyleEvent);
+    document.querySelector('#Absurd1').addEventListener('click', filterInvStyleEvent);
+    document.querySelector('#Viking1').addEventListener('click', filterInvStyleEvent);
+    document.querySelector('#Cosplay1').addEventListener('click', filterInvStyleEvent);
+    document.querySelector('#allStyles').addEventListener('click', filterInvStyleEvent);}
 };
 
 const filterRatingEvent = (event) => {
