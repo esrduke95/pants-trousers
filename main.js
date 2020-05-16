@@ -254,17 +254,19 @@ const reviewCardBuilder = (arr) => {
 
 
 const clickEvents = () => {
-  document.querySelector('#oneRating').addEventListener('click', filterRatingEvent)
-  document.querySelector('#twoRating').addEventListener('click', filterRatingEvent)
-  document.querySelector('#threeRating').addEventListener('click', filterRatingEvent)
-  document.querySelector('#fourRating').addEventListener('click', filterRatingEvent)
-  document.querySelector('#fiveRating').addEventListener('click', filterRatingEvent)
-  document.querySelector('#all').addEventListener('click', displayAllReviews)
-  document.querySelector('#Viking').addEventListener('click', filterStyleReviewEvent)
-  document.querySelector('#Century').addEventListener('click', filterStyleReviewEvent)
-  document.querySelector('#Absurd').addEventListener('click', filterStyleReviewEvent)
-  document.querySelector('#Cosplay').addEventListener('click', filterStyleReviewEvent)
-  
+  if(document.getElementById('reviews')){
+    document.querySelector('#oneRating').addEventListener('click', filterRatingEvent)
+    document.querySelector('#twoRating').addEventListener('click', filterRatingEvent)
+    document.querySelector('#threeRating').addEventListener('click', filterRatingEvent)
+    document.querySelector('#fourRating').addEventListener('click', filterRatingEvent)
+    document.querySelector('#fiveRating').addEventListener('click', filterRatingEvent)
+    document.querySelector('#all').addEventListener('click', displayAllReviews)
+    document.querySelector('#all1').addEventListener('click', displayAllReviews)
+    document.querySelector('#Viking').addEventListener('click', filterStyleReviewEvent)
+    document.querySelector('#Century').addEventListener('click', filterStyleReviewEvent)
+    document.querySelector('#Absurd').addEventListener('click', filterStyleReviewEvent)
+    document.querySelector('#Cosplay').addEventListener('click', filterStyleReviewEvent)
+  }
 };
 
 const filterRatingEvent = (event) => {
@@ -375,4 +377,3 @@ const init = () => {
 
 
 init ();
-
