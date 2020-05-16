@@ -108,17 +108,10 @@ a.navLinksA:active {
   margin: 20px;
 }
 
-#inventory img {
-  height: 50%;
-  width: 50%;
-  margin: 20px
-}
-
-
 #inventory {
   display: flex;
   flex-flow: wrap;
-  background-color: lightgrey;
+  background-color: grey;
   width: 80%;
   margin: 50px;
 }
@@ -130,3 +123,7 @@ a.navLinksA:active {
   background-color: white;
 }
 
+.inventory {
+  margin: 30px;
+  text-align: center;
+}

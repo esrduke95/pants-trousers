@@ -188,7 +188,7 @@ const customerReviews = [
 
 const printToDom1 = (divId, textToPrint) => {
   const selectedDiv1 = document.getElementById(divId);
-  selectedDiv.innerHTML = textToPrint;
+  selectedDiv1.innerHTML = textToPrint;
 }
 
 const buildInventoryPage = (pantsArray) => {
@@ -198,92 +198,153 @@ const buildInventoryPage = (pantsArray) => {
       let sizes = pantsArray[i].sizes.join(", ");
 
     domString += `
-      <div class="pantsCollection">
-        <img src="${pantsArray[i].imgUrl}" alt="Card image cap">
-        <h5>${pantsArray[i].style}: ${pantsArray[i].model}</h5>
-        <h6>Available Sizes: ${sizes}</h6>
-        <p>${pantsArray[i].description}</p>
-        <h3>$${pantsArray[i].price}</h3>
-      </div>
+      <div class="card inventory" style="width: 18rem;">
+        <img class="card-img-top" src="${pantsArray[i].imgUrl}" alt="Card image cap">
+        <div class="card-body">
+          <h5>${pantsArray[i].style}: ${pantsArray[i].model}</h5>
+          <h6>Available Sizes: ${sizes}</h6>
+          <p>${pantsArray[i].description}</p>
+          <h3>$${pantsArray[i].price}</h3>
+        </div>
     `;
     domString += '</div>'
   }
 
-printToDom("inventory", domString)
+printToDom1("inventory", domString)
 }
 
-const printToDom = (selector,textToPrint) => {
-  const selectedDiv = document.querySelector(`#${selector}`);
-  selectedDiv.innerHTML = textToPrint
-};
+// const printToDom = (selector,textToPrint) => {
+//   const selectedDiv = document.querySelector(`#${selector}`);
+//   selectedDiv.innerHTML = textToPrint
+// };
 
-const reviewCardBuilder = (arr) => {
-  let domString = "";
+// const reviewCardBuilder = (arr) => {
+//   let domString = "";
   
-  for (let i = 0; i < arr.length; i++) {
-    let reviewImg = "";
-    for (let j = 0; j < pantsArray.length; j++) {
-      if (arr[i].model === pantsArray[j].model) {
-        reviewImg += pantsArray[j].imgUrl
-        console.log('Pants')
-      }
+//   for (let i = 0; i < arr.length; i++) {
+//     let reviewImg = "";
+//     for (let j = 0; j < pantsArray.length; j++) {
+//       if (arr[i].model === pantsArray[j].model) {
+//         reviewImg += pantsArray[j].imgUrl
+//         console.log('Pants')
+//       }
       
-    }
-    domString += `
-    <div class="card filterDiv${arr[i].style} filterDiv${arr[i].rating}">
-      <img class="card-img-top" src="${reviewImg}" alt="Card image cap">
-      <div class="card-body">
-        <h5 class="card-title">${arr[i].name}</h5>
-        <h6>Rating: ${arr[i].rating} out of 5</h6>
-        <h6>MODEL: ${arr[i].model} STYLE: ${arr[i].style}</h6>
+//     }
+//     domString += `
+//     <div class="card filterDiv${arr[i].style} filterDiv${arr[i].rating}">
+//       <img class="card-img-top" src="${reviewImg}" alt="Card image cap">
+//       <div class="card-body">
+//         <h5 class="card-title">${arr[i].name}</h5>
+//         <h6>Rating: ${arr[i].rating} out of 5</h6>
+//         <h6>MODEL: ${arr[i].model} STYLE: ${arr[i].style}</h6>
         
-        <p class="card-text">${arr[i].review}</p>
+//         <p class="card-text">${arr[i].review}</p>
         
-      </div>
-    </div>
-    `
+//       </div>
+//     </div>
+//     `
     
-  }
-  printToDom('reviews',domString)
-};
+//   }
+//   printToDom('reviews',domString)
+// };
+
+
+
 
 
 const clickEvents = () => {
-  document.querySelector('#oneRating').addEventListener('click', filterRatingEvent)
-  document.querySelector('#twoRating').addEventListener('click', filterRatingEvent)
-  document.querySelector('#threeRating').addEventListener('click', filterRatingEvent)
-  document.querySelector('#fourRating').addEventListener('click', filterRatingEvent)
-  document.querySelector('#fiveRating').addEventListener('click', filterRatingEvent)
+  // document.querySelector('#oneRating').addEventListener('click', filterRatingEvent)
+  // document.querySelector('#twoRating').addEventListener('click', filterRatingEvent)
+  // document.querySelector('#threeRating').addEventListener('click', filterRatingEvent)
+  // document.querySelector('#fourRating').addEventListener('click', filterRatingEvent)
+  // document.querySelector('#fiveRating').addEventListener('click', filterRatingEvent)
+  document.querySelector('#Thicc').addEventListener('click', filterInvSizeEvent);
+  document.querySelector('#Chonky').addEventListener('click', filterInvSizeEvent);
+  document.querySelector('#allSizes').addEventListener('click', filterInvSizeEvent);
+  document.querySelector('#Century').addEventListener('click', filterInvStyleEvent);
+  document.querySelector('#Absurd').addEventListener('click', filterInvStyleEvent);
+  document.querySelector('#Viking').addEventListener('click', filterInvStyleEvent);
+  document.querySelector('#Cosplay').addEventListener('click', filterInvStyleEvent);
+  document.querySelector('#allStyles').addEventListener('click', filterInvStyleEvent);
+  // document.querySelector('#18th Century').addEventListener('click', filterInvStyleEvent);
 };
 
-const filterRatingEvent = (event) => {
-  const tempRating = [];
-  let rating = '' ;
+// const filterRatingEvent = (event) => {
+//   const tempRating = [];
+//   let rating = '' ;
   
-  switch (event.target.id) {
-    case 'oneRating': rating = 1
-      break;
-    case 'twoRating': rating = 2     
-      break;
-    case 'threeRating': rating = 3
-      break;
-    case 'fourRating': rating = 4
-      break;
-    case 'fiveRating': rating = 5
-      break;
-  };
+//   switch (event.target.id) {
+//     case 'oneRating': rating = 1
+//       break;
+//     case 'twoRating': rating = 2     
+//       break;
+//     case 'threeRating': rating = 3
+//       break;
+//     case 'fourRating': rating = 4
+//       break;
+//     case 'fiveRating': rating = 5
+//       break;
+//   };
   
-  for (let i = 0; i < customerReviews.length; i++) {
-    if (customerReviews[i].rating === rating){
-      tempRating.push(customerReviews[i])
+//   for (let i = 0; i < customerReviews.length; i++) {
+//     if (customerReviews[i].rating === rating){
+//       tempRating.push(customerReviews[i])
+//     }
+//   };
+//   reviewCardBuilder(tempRating)
+// };
+
+const filterInvSizeEvent = (event) => {
+  const clickId = event.target.id;
+  let tempSizeCollection = [];
+
+  if (clickId === "allSizes") {
+    buildInventoryPage(pantsArray);
+    return
+  }
+
+  pantsArray.forEach((pant) => {
+    if (pant.sizes.includes(clickId)) {
+      tempSizeCollection.push(pant)
     }
-  };
-  reviewCardBuilder(tempRating)
-};
+  })
+
+
+  console.log(clickId)
+  console.log(tempSizeCollection)
+  buildInventoryPage(tempSizeCollection)
+}
+
+const filterInvStyleEvent = (event) => {
+  const clickId = event.target.id;
+  let tempStyleCollection = [];
+
+
+  if (clickId === "allStyles") {
+    buildInventoryPage(pantsArray);
+    return;
+  }
+
+  if (event.target.id === "Century") {
+    event.target.id = "18th Century"
+  } else {
+    event.target.id = event.target.id
+  }
+ 
+
+  for (let i=0; i<pantsArray.length; i++) {
+    if (pantsArray[i].style == clickId) {
+      tempStyleCollection.push(pantsArray[i])
+    }
+  }
+  console.log(clickId)
+  buildInventoryPage(tempStyleCollection)
+}
+
 
 const init = () => {
   buildInventoryPage(pantsArray)
-  reviewCardBuilder(customerReviews);
+  // reviewCardBuilder(customerReviews);
   clickEvents();
 };
 
