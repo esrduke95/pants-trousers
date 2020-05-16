@@ -222,10 +222,10 @@ const customerReviews = [
   },
 ];
 
-const printToDom1 = (divId, textToPrint) => {
-  const selectedDiv1 = document.getElementById(divId);
-  selectedDiv.innerHTML = textToPrint;
-}
+// const printToDom1 = (divId, textToPrint) => {
+//   const selectedDiv1 = document.getElementById(divId);
+//   selectedDiv1.innerHTML = textToPrint;
+// }
 
 const buildInventoryPage = (pantsArray) => {
   let domString = '';
@@ -251,6 +251,7 @@ printToDom("inventory", domString)
 const printToDom = (selector,textToPrint) => {
   const selectedDiv = document.querySelector(`#${selector}`);
   selectedDiv.innerHTML = textToPrint
+  
 };
 
 const reviewCardBuilder = (arr) => {
@@ -261,7 +262,6 @@ const reviewCardBuilder = (arr) => {
     for (let j = 0; j < pantsArray.length; j++) {
       if (arr[i].model === pantsArray[j].model) {
         reviewImg += pantsArray[j].imgUrl
-        console.log('Pants')
       }
       
     }
@@ -290,9 +290,16 @@ const clickEvents = () => {
   document.querySelector('#threeRating').addEventListener('click', filterRatingEvent)
   document.querySelector('#fourRating').addEventListener('click', filterRatingEvent)
   document.querySelector('#fiveRating').addEventListener('click', filterRatingEvent)
+  document.querySelector('#all').addEventListener('click', displayAllReviews)
+  document.querySelector('#Viking').addEventListener('click', filterStyleReviewEvent)
+  document.querySelector('#Century').addEventListener('click', filterStyleReviewEvent)
+  document.querySelector('#Absurd').addEventListener('click', filterStyleReviewEvent)
+  document.querySelector('#Cosplay').addEventListener('click', filterStyleReviewEvent)
+  
 };
 
 const filterRatingEvent = (event) => {
+  
   const tempRating = [];
   let rating = '' ;
   
@@ -315,16 +322,41 @@ const filterRatingEvent = (event) => {
     }
   };
   reviewCardBuilder(tempRating)
-}; 
+};  
 
 
+const filterStyleReviewEvent = (event) => {
   
-  
+  const tempStyle = [];
+  let style = "";
 
-const init = () => { 
-  imageCarousel(); 
-  buildInventoryPage(pantsArray)
-  reviewCardBuilder(customerReviews);
+  if (event.target.id === 'Century' ) {
+    style = "18th Century"
+  } else {
+    style = event.target.id
+  }
+  
+  for (let i = 0; i < customerReviews.length; i++) {
+    if (customerReviews[i].style === style) {
+      tempStyle.push(customerReviews[i])
+    }    
+  }
+  reviewCardBuilder(tempStyle)
+};
+
+const displayAllReviews = (event) => {
+  reviewCardBuilder(customerReviews)
+}
+
+const init = () => {
+    imageCarousel(); 
+  
+  if(document.getElementById('reviews')){
+    reviewCardBuilder(customerReviews);
+  }
+  if(document.getElementById('inventory')){
+  buildInventoryPage(pantsArray);
+  }
   clickEvents();
   
 };

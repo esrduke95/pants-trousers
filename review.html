@@ -36,29 +36,35 @@
   <h2 >Words From Our Buyers</h2>
   <p class="col">Please see our satisfied customers and how we might be able to serve you</p>
   
-  
 
-    <div class="dropdown pull-left">
-      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Filter by Rating
-      </button>
-      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <a class="dropdown-item" id="oneRating">1 out of 5</a>
-        <a class="dropdown-item" id="twoRating">2 out of 5</a>
-        <a class="dropdown-item" id="threeRating">3 out of 5</a>
-        <a class="dropdown-item" id="fourRating">4 out of 5</a>
-        <a class="dropdown-item" id="fiveRating">5 out of 5</a>
+    <div id="inventoryDropdown">
+      <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Filter by Style
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" id="all">View all Reviews</a>
+          <a class="dropdown-item" id="Viking">Viking</a>
+          <a class="dropdown-item" id="Century">18th Century</a>
+          <a class="dropdown-item" id="Absurd">Absurd</a>
+          <a class="dropdown-item" id="Cosplay">Cosplay</a>
+        </div>
       </div>
-      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Filter by Style
-      </button>
-      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <a class="dropdown-item" href="#">Viking</a>
-        <a class="dropdown-item" href="#">1800s</a>
-        <a class="dropdown-item" href="#">Absurd</a>
-        <a class="dropdown-item" href="#">Cosplay</a>
+      <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Filter by Rating
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" id="all">View all Reviews</a>
+          <a class="dropdown-item" id="oneRating">1 out of 5</a>
+          <a class="dropdown-item" id="twoRating">2 out of 5</a>
+          <a class="dropdown-item" id="threeRating">3 out of 5</a>
+          <a class="dropdown-item" id="fourRating">4 out of 5</a>
+          <a class="dropdown-item" id="fiveRating">5 out of 5</a>
+        </div>
       </div>
     </div>
+    <div>
     
   <div class="reviewCardContainer">
     <div class="reviews" id="reviews"></div>
