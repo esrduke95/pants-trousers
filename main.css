@@ -93,9 +93,6 @@ a.navLinksA:active {
   background-color: royalblue;
 }
 
-#largeOrderLink {
-  
-}
 
 
 
@@ -117,17 +114,10 @@ a.navLinksA:active {
   margin: 20px;
 }
 
-#inventory img {
-  height: 50%;
-  width: 50%;
-  margin: 20px
-}
-
-
 #inventory {
   display: flex;
   flex-flow: wrap;
-  background-color: lightgrey;
+  background-color: grey;
   width: 80%;
   margin: 50px;
 }
@@ -140,6 +130,11 @@ a.navLinksA:active {
 }
 
 
+
+.inventory {
+  margin: 30px;
+  text-align: center;
+}
 
 footer {
   display: flex !important;
