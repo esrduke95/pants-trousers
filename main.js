@@ -332,24 +332,24 @@ const filterStyleReviewEvent = (event) => {
 };
 
 
-const filterStyleReviewEvent = (event) => {
+// const filterStyleReviewEvent = (event) => {
   
-  const tempStyle = [];
-  let style = "";
+//   const tempStyle = [];
+//   let style = "";
 
-  if (event.target.id === 'Century' ) {
-    style = "18th Century"
-  } else {
-    style = event.target.id
-  }
+//   if (event.target.id === 'Century' ) {
+//     style = "18th Century"
+//   } else {
+//     style = event.target.id
+//   }
   
-  for (let i = 0; i < customerReviews.length; i++) {
-    if (customerReviews[i].style === style) {
-      tempStyle.push(customerReviews[i])
-    }    
-  }
-  reviewCardBuilder(tempStyle)
-};
+//   for (let i = 0; i < customerReviews.length; i++) {
+//     if (customerReviews[i].style === style) {
+//       tempStyle.push(customerReviews[i])
+//     }    
+//   }
+//   reviewCardBuilder(tempStyle)
+// };
 
 const filterInvSizeEvent = (event) => {
   let clickId = ""
@@ -422,7 +422,7 @@ const submitOrderForm = (event) => {
   document.getElementById('orderForm').reset();
 };
 
-const init = () => {
+
 
 let images= [];
 let models= [];
