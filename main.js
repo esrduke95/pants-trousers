@@ -322,15 +322,45 @@ const displayAllReviews = (event) => {
 let images= [];
 let models= [];
 
+
 x = 0;
 
 
 const addImageToAboutNate=()=>{
-    let img = document.querySelector(".aboutImg");
+    let img = document.querySelector(".aboutImg");    
     img.src = images[images.length - 1];
+}
+
+const buildDomString=()=>{
+    let saleString="";
+    saleString += 
+    `<h5> SALE <span class="red">SALE</span> SALE <span class="red">SALE</span> SALE<span class="red">SALE</span> SALE </h5>
+    <h2 class="big display-4">BIG<h1>
+    <h2 class="sale display-4">SALE<h1>
+    <p class="site"> ONLINE ONLY | <span class="entireSection">20% OFF</span></p>
+    <P class="shopNow">$ ${calculateDiscount(pantsArray[10].price)}</p>
+    `;
+    return saleString;
+}
+
+const saleDetails=()=>{
+    let model= document.querySelector(".saleDetails");
+    model.innerHTML= buildDomString();
 
 }
 
+const calculateDiscount=(price)=>{
+return (price * .8).toFixed(2);
+
+}
+
+
+const addSaleImg=()=>{
+    let img = document.querySelector(".saleImg");
+    img.src = images[10];
+    saleDetails();
+
+}
 
 const changeImage=()=>
 {
@@ -371,8 +401,9 @@ const imageCarousel=()=>{
 // ==============================Nikhil End=============================================
 
 const init = () => {
-    imageCarousel(); 
-    addImageToAboutNate();
+    imageCarousel(); //Nikhil
+    addImageToAboutNate(); //Nikhil
+    addSaleImg();//Nikhil
   
   if(document.getElementById('reviews')){
     reviewCardBuilder(customerReviews);

@@ -211,6 +211,14 @@ img.carousel{
 
 }
 
+.saleContainer{
+  position: relative;
+  text-align: center;
+  color: white;
+  font-size: 5rem;  
+
+}
+
 img.aboutImg {
   width: 600px;
     height: 600px;
@@ -218,6 +226,43 @@ img.aboutImg {
     object-fit: cover;
 
 }
+
+.saleDetails{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+}
+.red{
+  color: red;
+}
+
+.entireSection{
+  color: black;
+  font-weight: bolder;
+  text-shadow: 1px 1px red;
+}
+
+.sale{
+  color: red;
+  font-size: 10rem;
+  font-weight: bolder;
+  text-shadow: none;
+}
+.big{
+  color: black;
+  font-size: 10rem;
+  font-weight: bolder;
+  text-shadow: none;
+}
+.shopNow{
+  border: 3px solid white;
+  background-color: black;
+  color: red;
+}
+
+
 
 
 
