@@ -317,10 +317,20 @@ const displayAllReviews = (event) => {
   reviewCardBuilder(customerReviews)
 }
 
+// ==============================Nikhil=============================================
+
 let images= [];
 let models= [];
 
 x = 0;
+
+
+const addImageToAboutNate=()=>{
+    let img = document.querySelector(".aboutImg");
+    img.src = images[images.length - 1];
+
+}
+
 
 const changeImage=()=>
 {
@@ -358,10 +368,11 @@ const imageCarousel=()=>{
     console.log(images);
     setTimeout("changeImage()", 1000);
 }
-
+// ==============================Nikhil End=============================================
 
 const init = () => {
     imageCarousel(); 
+    addImageToAboutNate();
   
   if(document.getElementById('reviews')){
     reviewCardBuilder(customerReviews);

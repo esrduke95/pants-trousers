@@ -97,13 +97,7 @@ a.navLinksA:active {
   
 }
 
-img{
-  width: 300px;
-    height: 300px;
-    border-radius: 15px;
-    object-fit: cover;
-    
-}
+
 
 .container{
   text-align: center;
@@ -145,21 +139,7 @@ img{
   background-color: white;
 }
 
-/* Centered text for the carousel image */
-.centered {
-  position: absolute;
-  top: 80%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-.carouselContainer{
-  position: relative;
-  text-align: center;
-  color: black;
-  font-size: 2rem;
-  text-shadow: 2px 2px rgb(17, 206, 42);
 
-}
 
 footer {
   display: flex !important;
@@ -204,3 +184,50 @@ footer img {
   height: 40px;
   width: 40px;
 }
+/* =====================================Nikhil================================== */
+
+img.carousel{
+  width: 300px;
+    height: 300px;
+    border-radius: 15px;
+    object-fit: cover;
+    
+}
+
+
+/* Centered text for the carousel image */
+.centered {
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.carouselContainer{
+  position: relative;
+  text-align: center;
+  color: black;
+  font-size: 2rem;
+  text-shadow: 2px 2px rgb(17, 206, 42);
+
+}
+
+img.aboutImg {
+  width: 600px;
+    height: 600px;
+    border-radius: 15px;
+    object-fit: cover;
+
+}
+
+
+
+
+
+
+
+
+
+
+/* =====================================Nikhil End================================== */
+
+
