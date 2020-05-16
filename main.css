@@ -123,17 +123,10 @@ img{
   margin: 20px;
 }
 
-#inventory img {
-  height: 50%;
-  width: 50%;
-  margin: 20px
-}
-
-
 #inventory {
   display: flex;
   flex-flow: wrap;
-  background-color: lightgrey;
+  background-color: grey;
   width: 80%;
   margin: 50px;
 }
@@ -145,6 +138,11 @@ img{
   background-color: white;
 }
 
+.inventory {
+  margin: 30px;
+  text-align: center;
+}
+
 /* Centered text for the carousel image */
 .centered {
   position: absolute;
@@ -152,6 +150,7 @@ img{
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
 .carouselContainer{
   position: relative;
   text-align: center;
