@@ -436,7 +436,7 @@ x = 0;
 
 const addImageToAboutNate=()=>{
     let img = document.querySelector(".aboutImg");    
-    img.src = images[images.length - 1];
+    img.src = 'https://previews.123rf.com/images/elnur/elnur1311/elnur131100481/23538761-funny-man-with-trousers-isolated-on-white.jpg';
 }
 
 const buildDomString=()=>{
