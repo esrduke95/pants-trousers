@@ -186,17 +186,16 @@ const customerReviews = [
   },
 ];
 
-
-const printToDom1 = (divId, textToPrint) => {
-  const selectedDiv1 = document.getElementById(divId);
-  selectedDiv1.innerHTML = textToPrint;
-}
-
 // const printToDom1 = (divId, textToPrint) => {
 //   const selectedDiv1 = document.getElementById(divId);
 //   selectedDiv1.innerHTML = textToPrint;
 // }
 
+
+const printToDom1 = (divId, textToPrint) => {
+  const selectedDiv1 = document.getElementById(divId);
+  selectedDiv1.innerHTML = textToPrint;
+}
 
 const buildInventoryPage = (pantsArray) => {
   let domString = '';
@@ -255,32 +254,33 @@ const reviewCardBuilder = (arr) => {
   printToDom('reviews',domString)
 };
 
-
-
-
-
 const clickEvents = () => {
   document.querySelector('#oneRating').addEventListener('click', filterRatingEvent)
   document.querySelector('#twoRating').addEventListener('click', filterRatingEvent)
   document.querySelector('#threeRating').addEventListener('click', filterRatingEvent)
   document.querySelector('#fourRating').addEventListener('click', filterRatingEvent)
   document.querySelector('#fiveRating').addEventListener('click', filterRatingEvent)
+
   document.querySelector('#Thicc').addEventListener('click', filterInvSizeEvent);
   document.querySelector('#Chonky').addEventListener('click', filterInvSizeEvent);
   document.querySelector('#bigChungus').addEventListener('click', filterInvSizeEvent);
   document.querySelector('#absoluteUnit').addEventListener('click', filterInvSizeEvent);
   document.querySelector('#allSizes').addEventListener('click', filterInvSizeEvent);
+
   document.querySelector('#all').addEventListener('click', displayAllReviews)
   document.querySelector('#Viking').addEventListener('click', filterStyleReviewEvent)
   document.querySelector('#Century').addEventListener('click', filterStyleReviewEvent)
   document.querySelector('#Absurd').addEventListener('click', filterStyleReviewEvent)
   document.querySelector('#Cosplay').addEventListener('click', filterStyleReviewEvent)
+
+  document.querySelector('#submitOrderButton').addEventListener('click', submitOrderForm);
+ 
   document.querySelector('#Century1').addEventListener('click', filterInvStyleEvent);
   document.querySelector('#Absurd1').addEventListener('click', filterInvStyleEvent);
   document.querySelector('#Viking1').addEventListener('click', filterInvStyleEvent);
   document.querySelector('#Cosplay1').addEventListener('click', filterInvStyleEvent);
   document.querySelector('#allStyles').addEventListener('click', filterInvStyleEvent);
-};
+
 
 const filterRatingEvent = (event) => {
   
@@ -307,6 +307,26 @@ const filterRatingEvent = (event) => {
   };
   reviewCardBuilder(tempRating)
 };  
+
+
+const filterStyleReviewEvent = (event) => {
+  
+  const tempStyle = [];
+  let style = "";
+
+  if (event.target.id === 'Century' ) {
+    style = "18th Century"
+  } else {
+    style = event.target.id
+  }
+  
+  for (let i = 0; i < customerReviews.length; i++) {
+    if (customerReviews[i].style === style) {
+      tempStyle.push(customerReviews[i])
+    }    
+  }
+  reviewCardBuilder(tempStyle)
+};
 
 
 const filterStyleReviewEvent = (event) => {
@@ -387,9 +407,19 @@ const filterInvStyleEvent = (event) => {
   buildInventoryPage(tempStyleCollection)
 }
 
+
 const displayAllReviews = (event) => {
   reviewCardBuilder(customerReviews)
 }
+
+
+// SD --- ORDER FORM SUBMIT BUTTON 
+
+const submitOrderForm = (event) => {
+  document.getElementById('orderForm').reset();
+};
+
+const init = () => {
 
 let images= [];
 let models= [];
@@ -436,6 +466,7 @@ const imageCarousel=()=>{
 
 const init = () => {
     imageCarousel(); 
+
   
   if(document.getElementById('reviews')){
     reviewCardBuilder(customerReviews);
