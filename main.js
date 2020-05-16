@@ -186,17 +186,16 @@ const customerReviews = [
   },
 ];
 
-
-const printToDom1 = (divId, textToPrint) => {
-  const selectedDiv1 = document.getElementById(divId);
-  selectedDiv1.innerHTML = textToPrint;
-}
-
 // const printToDom1 = (divId, textToPrint) => {
 //   const selectedDiv1 = document.getElementById(divId);
 //   selectedDiv1.innerHTML = textToPrint;
 // }
 
+
+const printToDom1 = (divId, textToPrint) => {
+  const selectedDiv1 = document.getElementById(divId);
+  selectedDiv1.innerHTML = textToPrint;
+}
 
 const buildInventoryPage = (pantsArray) => {
   let domString = '';
@@ -255,10 +254,6 @@ const reviewCardBuilder = (arr) => {
   printToDom('reviews',domString)
 };
 
-
-
-
-
 const clickEvents = () => {
   if(document.getElementById('reviews')){
     document.querySelector('#oneRating').addEventListener('click', filterRatingEvent)
@@ -283,8 +278,12 @@ const clickEvents = () => {
     document.querySelector('#Absurd1').addEventListener('click', filterInvStyleEvent);
     document.querySelector('#Viking1').addEventListener('click', filterInvStyleEvent);
     document.querySelector('#Cosplay1').addEventListener('click', filterInvStyleEvent);
-    document.querySelector('#allStyles').addEventListener('click', filterInvStyleEvent);}
+    document.querySelector('#allStyles').addEventListener('click', filterInvStyleEvent);
+  }
+    document.querySelector('#submitOrderButton').addEventListener('click', submitOrderForm);
+
 };
+
 
 const filterRatingEvent = (event) => {
   
@@ -311,6 +310,26 @@ const filterRatingEvent = (event) => {
   };
   reviewCardBuilder(tempRating)
 };  
+
+
+const filterStyleReviewEvent = (event) => {
+  
+  const tempStyle = [];
+  let style = "";
+
+  if (event.target.id === 'Century' ) {
+    style = "18th Century"
+  } else {
+    style = event.target.id
+  }
+  
+  for (let i = 0; i < customerReviews.length; i++) {
+    if (customerReviews[i].style === style) {
+      tempStyle.push(customerReviews[i])
+    }    
+  }
+  reviewCardBuilder(tempStyle)
+};
 
 
 const filterStyleReviewEvent = (event) => {
@@ -391,9 +410,19 @@ const filterInvStyleEvent = (event) => {
   buildInventoryPage(tempStyleCollection)
 }
 
+
 const displayAllReviews = (event) => {
   reviewCardBuilder(customerReviews)
 }
+
+
+// SD --- ORDER FORM SUBMIT BUTTON 
+
+const submitOrderForm = (event) => {
+  document.getElementById('orderForm').reset();
+};
+
+const init = () => {
 
 let images= [];
 let models= [];
@@ -440,6 +469,7 @@ const imageCarousel=()=>{
 
 const init = () => {
     imageCarousel(); 
+
   
   if(document.getElementById('reviews')){
     reviewCardBuilder(customerReviews);
