@@ -6,8 +6,7 @@ x = 0;
 
 const changeImage=()=>
 {
-    let img = document.querySelector(".carousel");
-    console.log(img);
+    let img = document.querySelector(".carousel");    
     img.src = images[x];
     x++;
 
