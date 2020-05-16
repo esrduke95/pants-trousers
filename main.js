@@ -295,10 +295,30 @@ const clickEvents = () => {
 // };
 
 const filterInvSizeEvent = (event) => {
-  const clickId = event.target.id;
+  let clickId = ""
   let tempSizeCollection = [];
+  
 
-  if (clickId === "allSizes") {
+  switch (event.target.id) {
+    case 'Chonky': clickId = "Chonky"
+      break;
+    case 'Thicc': clickId = "Thicc"
+      break;
+    case 'bigChungus': clickId = "Big Chungus"
+      break;
+    case 'absoluteUnit': clickId = "Absolute Unit"
+      break;
+  }
+
+  // if (clickId === "absoluteUnit") {
+  //   size = "Absolute Unit"
+  // } else if (clickId === "bigChungus") {
+  //   size = "Big Chungus"
+  // } else {
+  //   size = clickId
+  // }
+
+  if (event.target.id === "allSizes") {
     buildInventoryPage(pantsArray);
     return
   }
@@ -318,6 +338,13 @@ const filterInvSizeEvent = (event) => {
 const filterInvStyleEvent = (event) => {
   const clickId = event.target.id;
   let tempStyleCollection = [];
+  let style = "";
+
+  if (clickId === "Century") {
+    style = "18th Century"
+  } else {
+    style = clickId
+  }
 
 
   if (clickId === "allStyles") {
@@ -325,15 +352,15 @@ const filterInvStyleEvent = (event) => {
     return;
   }
 
-  if (event.target.id === "Century") {
-    event.target.id = "18th Century"
-  } else {
-    event.target.id = event.target.id
-  }
+  // if (event.target.id === "Century") {
+  //   event.target.id = "18th Century"
+  // } else {
+  //   event.target.id = event.target.id
+  // }
  
 
   for (let i=0; i<pantsArray.length; i++) {
-    if (pantsArray[i].style == clickId) {
+    if (pantsArray[i].style == style) {
       tempStyleCollection.push(pantsArray[i])
     }
   }
