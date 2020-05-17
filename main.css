@@ -1,5 +1,6 @@
 body {
   background-color: white;
+  
 }
 
 .reviewHeader {
@@ -147,6 +148,7 @@ footer {
   flex-flow: row wrap;
   align-items: center;
   align-content: space-between;
+  margin-bottom: -500px;
 }
 
 ul.footerDThing {
