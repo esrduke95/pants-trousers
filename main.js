@@ -184,11 +184,6 @@ const customerReviews = [
   },
 ];
 
-// const printToDom1 = (divId, textToPrint) => {
-//   const selectedDiv1 = document.getElementById(divId);
-//   selectedDiv1.innerHTML = textToPrint;
-// }
-
 setTimeout(function() {
   $('#exampleModalCenter').modal();
 }, 10000);
@@ -402,16 +397,14 @@ const submitOrderForm = (event) => {
 
 const calculateOrderForm = (event) => {
   
-  modelpriceOne = "";
-  modelpriceTwo = "";
-  modelpriceThree = "";
-  modelpriceFour = "";
-  shipping = "";
+  modelpriceOne = 0;
+  modelpriceTwo = 0;
+  modelpriceThree = 0;
+  modelpriceFour = 0;
+  shipping = 0;
   
   for (let i = 0; i < pantsArray.length; i++) {
     if (document.getElementById("quantityOne").value ===  "Quantity") {
-      modelpriceOne = 0
-      
     }  
      else if (pantsArray[i].model ===  document.getElementById("modelOne").value) {
         modelpriceOne = pantsArray[i].price
@@ -453,15 +446,15 @@ const calculateOrderForm = (event) => {
       break;
   }
 
-  let lineOne = "";
-  let lineTwo = "";
-  let lineThree = "";
-  let lineFour = "";
+  let lineOne = 0;
+  let lineTwo = 0;
+  let lineThree = 0;
+  let lineFour = 0;
 
 
   if ( document.getElementById("modelOne").value === "Style" ) {
-    lineOne = 0; console.log('hiya')
-  } else {
+    lineOne = 0; 
+    } else {
     lineOne = document.getElementById("quantityOne").value * modelpriceOne
   };
   if ( document.getElementById("modelTwo").value === "Style" ) {
@@ -482,7 +475,7 @@ const calculateOrderForm = (event) => {
   
   console.log(lineOne)
   let totalCost = lineOne + lineTwo + lineThree + lineFour + shipping 
-  console.log(totalCost)
+  
 
   document.getElementById('inputPlaceholder').innerHTML = `$${totalCost.toFixed(2)}`
 
@@ -592,4 +585,4 @@ const init = () => {
   clickEvents();  
 };
 
-init()
+init();
