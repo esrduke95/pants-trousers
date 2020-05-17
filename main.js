@@ -184,6 +184,15 @@ const customerReviews = [
   },
 ];
 
+// const printToDom1 = (divId, textToPrint) => {
+//   const selectedDiv1 = document.getElementById(divId);
+//   selectedDiv1.innerHTML = textToPrint;
+// }
+
+setTimeout(function() {
+  $('#exampleModalCenter').modal();
+}, 10000);
+
 const printToDom1 = (divId, textToPrint) => {
   const selectedDiv1 = document.getElementById(divId);
   selectedDiv1.innerHTML = textToPrint;
@@ -487,25 +496,28 @@ x = 0;
 const addImageToAboutNate=()=>{
    if (document.querySelector(".aboutImg")){
     let img = document.querySelector(".aboutImg");    
-    img.src = images[images.length - 1];
-   };
+    img.src = 'https://previews.123rf.com/images/elnur/elnur1311/elnur131100481/23538761-funny-man-with-trousers-isolated-on-white.jpg';
+  };
 };
 
-const buildDomString=()=>{
+const buildDomString=(randomNumber)=>{
     let saleString="";
     saleString += 
-    `<h5> SALE <span class="red">SALE</span> SALE <span class="red">SALE</span> SALE<span class="red">SALE</span> SALE </h5>
-    <h2 class="big display-4">BIG<h1>
-    <h2 class="sale display-4">SALE<h1>
-    <p class="site"> ONLINE ONLY | <span class="entireSection">20% OFF</span></p>
-    <P class="shopNow">$ ${calculateDiscount(pantsArray[10].price)}</p>
+    `<div class="saleText">
+    <h2 class="big">BIG<h1>
+    <h2 class="sale">SALE<h1>
+    <p> <span class="entireSection">20% OFF</span></p>
+    <P class="shopNow"> ${pantsArray[randomNumber].model}</p>
+    <P class="original">Price: ${pantsArray[randomNumber].price}</p>
+    <P class="shopNow">$ ${calculateDiscount(pantsArray[randomNumber].price)}</p>
+    </div>
     `;
     return saleString;
 };
 
-const saleDetails=()=>{
+const saleDetails=(randomNumber)=>{
     let model= document.querySelector(".saleDetails");
-    model.innerHTML= buildDomString();
+    model.innerHTML= buildDomString(randomNumber);
 
 };
 
@@ -516,8 +528,14 @@ return (price * .8).toFixed(2);
 
 const addSaleImg=()=>{
     let img = document.querySelector(".saleImg");
-    img.src = images[10];
-    saleDetails();
+    randomNumber = pickRandomNumber(pantsArray.length)
+    img.src = images[randomNumber];
+    saleDetails(randomNumber);
+
+}
+
+const pickRandomNumber=(num)=>{
+  return Math.floor(Math.random() * Math.floor(num));
 
 };
 
@@ -574,4 +592,4 @@ const init = () => {
   clickEvents();  
 };
 
-init ();
+init()
