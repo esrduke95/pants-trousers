@@ -210,16 +210,19 @@ img.carousel{
   position: relative;
   text-align: center;
   color: white;
-  font-size: 5rem;  
+  font-size: 6rem;  
 
 }
 
 img.aboutImg {
-  width: 600px;
-    height: 600px;
+  
+    height: 400px;
     border-radius: 15px;
     object-fit: cover;
-
+    
+}
+.imageCenter{
+  text-align: center;
 }
 
 .saleDetails{
@@ -241,33 +244,54 @@ img.aboutImg {
 
 .sale{
   color: red;
-  font-size: 10rem;
+  font-size: 4rem;
   font-weight: bolder;
   text-shadow: none;
 }
 .big{
   color: black;
-  font-size: 10rem;
+  font-size: 4rem;
   font-weight: bolder;
   text-shadow: none;
 }
-.shopNow{
+.shopNow, .original{
   border: 3px solid white;
   background-color: black;
   color: red;
+  width: fit-content;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.homePageBottomSection {
+  background-color: lavender;
+  height: 150px;
+  margin-top: auto;
+  margin-bottom: auto;
+  text-align: center;
+  padding-top: 30px;
+
+}
+.original{ 
+  text-decoration: line-through; 
+}
+.site{
+  font-size: larger;
+}
+.saleText p{
+  text-align: center;  
+  font-size: large;
+  margin-left: auto; 
+  margin-right: auto;
 }
 
 
+img.saleImg{
+  height: 400px;
+  border-radius: 5px;
+  object-fit: cover;
 
-
-
-
-
-
-
-
+}
 
 
 /* =====================================Nikhil End================================== */
-
-
