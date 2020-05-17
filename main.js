@@ -191,6 +191,9 @@ const customerReviews = [
 //   selectedDiv1.innerHTML = textToPrint;
 // }
 
+setTimeout(function() {
+  $('#exampleModalCenter').modal();
+}, 10000);
 
 const printToDom1 = (divId, textToPrint) => {
   const selectedDiv1 = document.getElementById(divId);
@@ -420,13 +423,6 @@ const submitOrderForm = (event) => {
   document.getElementById('orderForm').reset();
 };
 
-
-
-// ==============================Nikhil=============================================
-
-
-
-
 let images= [];
 let models= [];
 
@@ -506,7 +502,7 @@ const imageCarousel=()=>{
     console.log(images);
     setTimeout("changeImage()", 1000);
 }
-// ==============================Nikhil End=============================================
+
 
 const init = () => {
 
