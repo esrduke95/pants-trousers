@@ -403,38 +403,35 @@ const calculateOrderForm = (event) => {
   modelpriceFour = 0;
   shipping = 0;
   
-  for (let i = 0; i < pantsArray.length; i++) {
-    if (document.getElementById("quantityOne").value ===  "Quantity") {
-    }  
-     else if (pantsArray[i].model ===  document.getElementById("modelOne").value) {
+  if (document.getElementById("quantityOne").value !==  "Quantity") {
+    for (let i = 0; i < pantsArray.length; i++){
+      if (pantsArray[i].model ===  document.getElementById("modelOne").value){
         modelpriceOne = pantsArray[i].price
       }
-  };
-  for (let i = 0; i < pantsArray.length; i++) {
-    if (document.getElementById("quantityTwo").value ===  "Quantity") {
-      modelpriceTwo = 0
-    }  
-     else if (pantsArray[i].model ===  document.getElementById("modelTwo").value) {
-      modelpriceTwo = pantsArray[i].price
     }
   };
-  for (let i = 0; i < pantsArray.length; i++) {
-    if (document.getElementById("quantityThree").value ===  "Quantity") {
-      modelpriceThree = 0
-    }  
-     else if (pantsArray[i].model ===  document.getElementById("modelThree").value) {
-      modelpriceThree = pantsArray[i].price
+  if (document.getElementById("quantityTwo").value !==  "Quantity") {
+    for (let i = 0; i < pantsArray.length; i++){
+      if (pantsArray[i].model ===  document.getElementById("modelTwo").value){
+        modelpriceTwo = pantsArray[i].price
+      }
     }
   };
-  for (let i = 0; i < pantsArray.length; i++) {
-    if (document.getElementById("quantityFour").value ===  "Quantity") {
-      modelpriceFour = 0
-    }  
-     else if (pantsArray[i].model ===  document.getElementById("modelFour").value) {
-      modelpriceFour = pantsArray[i].price
+  if (document.getElementById("quantityThree").value !==  "Quantity") {
+    for (let i = 0; i < pantsArray.length; i++){
+      if (pantsArray[i].model ===  document.getElementById("modelThree").value){
+        modelpriceThree = pantsArray[i].price
+      }
     }
   };
- 
+  if (document.getElementById("quantityFour").value !==  "Quantity") {
+    for (let i = 0; i < pantsArray.length; i++){
+      if (pantsArray[i].model ===  document.getElementById("modelFour").value){
+        modelpriceFour = pantsArray[i].price
+      }
+    }
+  };  
+
   switch (document.getElementById("inputShipping").value) {
     case 'First Class +$3.00': shipping = 3      
       break;
@@ -451,31 +448,39 @@ const calculateOrderForm = (event) => {
   let lineThree = 0;
   let lineFour = 0;
 
-
-  if ( document.getElementById("modelOne").value === "Style" ) {
-    lineOne = 0; 
-    } else {
-    lineOne = document.getElementById("quantityOne").value * modelpriceOne
+  let modelOne = document.getElementById("modelOne").value;
+  let modelTwo = document.getElementById("modelTwo").value;
+  let modelThree = document.getElementById("modelThree").value;
+  let modelFour = document.getElementById("modelFour").value;
+  
+  if (modelOne !== "Style") {
+    if (document.getElementById("quantityOne").value !== 'Quantity') { 
+      lineOne = document.getElementById("quantityOne").value * modelpriceOne
+    }
   };
-  if ( document.getElementById("modelTwo").value === "Style" ) {
-    lineTwo = 0;
-  } else {
-    lineTwo = document.getElementById("quantityTwo").value * modelpriceTwo
+  if (modelTwo !== "Style") {
+    if (document.getElementById("quantityTwo").value !== 'Quantity') { 
+      lineTwo = document.getElementById("quantityTwo").value * modelpriceTwo
+    }
   };
-  if ( document.getElementById("modelThree").value === "Style" ) {
-    lineThree = 0;
-  } else {
-    lineThree = document.getElementById("quantityThree").value * modelpriceThree
+  if (modelThree !== "Style") {
+    if (document.getElementById("quantityThree").value !== 'Quantity') { 
+      lineThree = document.getElementById("quantityThree").value * modelpriceThree
+    }
   };
-  if ( document.getElementById("modelFour").value === "Style" ) {
-    lineFour = 0;
-  } else {
-    lineFour = document.getElementById("quantityFour").value * modelpriceFour
+  if (modelFour !== "Style") {
+    if (document.getElementById("quantityFour").value !== 'Quantity') { 
+      lineFour = document.getElementById("quantityFour").value * modelpriceFour
+    }
   };
   
-  console.log(lineOne)
+  
+  
   let totalCost = lineOne + lineTwo + lineThree + lineFour + shipping 
   
+  if (document.getElementById("inputCouponCode").value ==='UNICORNSAREREAL') {
+    totalCost = totalCost * .9
+  }
 
   document.getElementById('inputPlaceholder').innerHTML = `$${totalCost.toFixed(2)}`
 
