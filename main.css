@@ -2,6 +2,7 @@
 
 body {
   background-color: white;
+
   font-family: 'Roboto', sans-serif;
 }
 
@@ -32,6 +33,7 @@ font-weight: bold;
 .homePageBottomSection {
   font-family: 'Roboto Slab', serif;
   margin-top: 100px;
+
 }
 
 .reviewHeader {
@@ -122,6 +124,20 @@ a.navLinksA:active {
   font-weight: bold;
 }
 
+
+.form-group.col-8 {
+  color:red;
+  background-color: royalblue;
+}
+
+.totalDisplayed {
+  border-style: solid;
+  border-color: black;
+  border-width: 1px;
+  height: 50px;
+  width: 150px;
+}
+
 .container{
   text-align: center;
 }
@@ -176,8 +192,7 @@ footer {
   flex-flow: row wrap;
   align-items: center;
   align-content: space-between;
-  background-color: #F7F9FC;
-  margin-top: 100px;
+  margin-bottom: -500px;
 }
 
 ul.footerDThing {

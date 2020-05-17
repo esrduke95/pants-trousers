@@ -58,8 +58,8 @@
     <!--ROW 4-->
       <div class="form-row">
         <div class="form-group col-2">
-          <select class="form-control inputQuantity">
-            <option selected>Quantity</option>
+          <select id="quantityOne" class="form-control inputQuantity">
+            <option  selected>Quantity</option>
             <option>1</option>
             <option>2</option>
             <option>3</option>
@@ -82,7 +82,7 @@
           </select>
         </div>
         <div class="form-group col-6">
-          <select class="form-control inputStyle">
+          <select id="modelOne" class="form-control inputStyle">
             <option selected>Style</option>
             <option>Ragnarok</option>
             <option>Aesir</option>
@@ -105,7 +105,7 @@
     <!--ROW 6-->
     <div class="form-row">
       <div class="form-group col-2">
-        <select class="form-control inputQuantity">
+        <select id="quantityTwo" class="form-control inputQuantity">
           <option selected>Quantity</option>
           <option>1</option>
           <option>2</option>
@@ -129,7 +129,7 @@
         </select>
       </div>
       <div class="form-group col-6">
-        <select class="form-control inputStyle">
+        <select id="modelTwo" class="form-control inputStyle">
           <option selected>Style</option>
           <option>Ragnarok</option>
           <option>Aesir</option>
@@ -152,7 +152,7 @@
     <!--ROW 8-->
     <div class="form-row">
       <div class="form-group col-2">
-        <select class="form-control inputQuantity">
+        <select id="quantityThree" class="form-control inputQuantity">
           <option selected>Quantity</option>
           <option>1</option>
           <option>2</option>
@@ -176,7 +176,7 @@
         </select>
       </div>
       <div class="form-group col-6">
-        <select class="form-control inputStyle">
+        <select id="modelThree" class="form-control inputStyle">
           <option selected>Style</option>
           <option>Ragnarok</option>
           <option>Aesir</option>
@@ -199,7 +199,7 @@
     <!--ROW 10-->
     <div class="form-row">
       <div class="form-group col-2">
-        <select class="form-control inputQuantity">
+        <select id="quantityFour" class="form-control inputQuantity">
           <option selected>Quantity</option>
           <option>1</option>
           <option>2</option>
@@ -223,7 +223,7 @@
         </select>
       </div>
       <div class="form-group col-6">
-        <select class="form-control inputStyle">
+        <select id="modelFour" class="form-control inputStyle">
           <option selected>Style</option>
           <option>Ragnarok</option>
           <option>Aesir</option>
@@ -259,10 +259,10 @@
       </select>
     </div>
     <div class="form-group col-4 text-center">
-      <button type="button" class="btn btn-dark">Calculate</button>
+      <button id="calculate" type="button" class="btn btn-dark">Calculate</button>
     </div>
     <div class="form-group col-4">
-      <input type="number" class="form-control" id="inputPlaceholder" placeholder="Order Total">
+      <p id="inputPlaceholder" class="totalDisplayed" >Order Total</p>
     </div>
   </div>
   <div class="form-row">
@@ -280,6 +280,7 @@
       </div>
     </div>
   </div>
+</div>
 </div>
   <!--all js links-->
 
