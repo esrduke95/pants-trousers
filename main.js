@@ -111,8 +111,6 @@ const pantsArray = [
   },
 ];
 
-
-
 const customerReviews = [
   {
     name: "Jane Austen",
@@ -186,16 +184,10 @@ const customerReviews = [
   },
 ];
 
-// const printToDom1 = (divId, textToPrint) => {
-//   const selectedDiv1 = document.getElementById(divId);
-//   selectedDiv1.innerHTML = textToPrint;
-// }
-
-
 const printToDom1 = (divId, textToPrint) => {
   const selectedDiv1 = document.getElementById(divId);
   selectedDiv1.innerHTML = textToPrint;
-}
+};
 
 const buildInventoryPage = (pantsArray) => {
   let domString = '';
@@ -214,15 +206,14 @@ const buildInventoryPage = (pantsArray) => {
         </div>
     `;
     domString += '</div>'
-  }
+  };
 
-printToDom1("inventory", domString)
-}
+printToDom1("inventory", domString);
+};
 
 const printToDom = (selector,textToPrint) => {
   const selectedDiv = document.querySelector(`#${selector}`);
-  selectedDiv.innerHTML = textToPrint
-  
+  selectedDiv.innerHTML = textToPrint  
 };
 
 const reviewCardBuilder = (arr) => {
@@ -267,7 +258,7 @@ const clickEvents = () => {
     document.querySelector('#Century').addEventListener('click', filterStyleReviewEvent)
     document.querySelector('#Absurd').addEventListener('click', filterStyleReviewEvent)
     document.querySelector('#Cosplay').addEventListener('click', filterStyleReviewEvent)
-  }
+  };
   if(document.getElementById('inventory')){
     document.querySelector('#Thicc').addEventListener('click', filterInvSizeEvent);
     document.querySelector('#Chonky').addEventListener('click', filterInvSizeEvent);
@@ -279,10 +270,11 @@ const clickEvents = () => {
     document.querySelector('#Viking1').addEventListener('click', filterInvStyleEvent);
     document.querySelector('#Cosplay1').addEventListener('click', filterInvStyleEvent);
     document.querySelector('#allStyles').addEventListener('click', filterInvStyleEvent);
-  }
+  };
+  if(document.getElementById('modelOne')){
     document.querySelector('#submitOrderButton').addEventListener('click', submitOrderForm);
     document.querySelector('#calculate').addEventListener('click', calculateOrderForm);
-
+  };
 };
 
 
@@ -312,7 +304,6 @@ const filterRatingEvent = (event) => {
   reviewCardBuilder(tempRating)
 };  
 
-
 const filterStyleReviewEvent = (event) => {
   
   const tempStyle = [];
@@ -331,26 +322,6 @@ const filterStyleReviewEvent = (event) => {
   }
   reviewCardBuilder(tempStyle)
 };
-
-
-// const filterStyleReviewEvent = (event) => {
-  
-//   const tempStyle = [];
-//   let style = "";
-
-//   if (event.target.id === 'Century' ) {
-//     style = "18th Century"
-//   } else {
-//     style = event.target.id
-//   }
-  
-//   for (let i = 0; i < customerReviews.length; i++) {
-//     if (customerReviews[i].style === style) {
-//       tempStyle.push(customerReviews[i])
-//     }    
-//   }
-//   reviewCardBuilder(tempStyle)
-// };
 
 const filterInvSizeEvent = (event) => {
   let clickId = ""
@@ -379,7 +350,7 @@ const filterInvSizeEvent = (event) => {
     }
   })
   buildInventoryPage(tempSizeCollection)
-}
+};
 
 const filterInvStyleEvent = (event) => {
   
@@ -409,12 +380,11 @@ const filterInvStyleEvent = (event) => {
   }
 
   buildInventoryPage(tempStyleCollection)
-}
-
+};
 
 const displayAllReviews = (event) => {
   reviewCardBuilder(customerReviews)
-}
+};
 
 // SD --- ORDER FORM SUBMIT BUTTON 
 const submitOrderForm = (event) => {
@@ -474,15 +444,6 @@ const calculateOrderForm = (event) => {
       break;
   }
 
-  
-  // console.log(modelpriceTwo)
-  // console.log(modelpriceThree)
-  // console.log(shipping)
-  // console.log(modelpriceFour)
-
-  
-
-
   let lineOne = "";
   let lineTwo = "";
   let lineThree = "";
@@ -514,28 +475,21 @@ const calculateOrderForm = (event) => {
   let totalCost = lineOne + lineTwo + lineThree + lineFour + shipping 
   console.log(totalCost)
 
-  document.getElementById('inputPlaceholder').innerHTML = `$${totalCost}`
+  document.getElementById('inputPlaceholder').innerHTML = `$${totalCost.toFixed(2)}`
 
-}
+};
 
 // ==============================Nikhil=============================================
-
-
-
-
 let images= [];
 let models= [];
-
-
 x = 0;
-
 
 const addImageToAboutNate=()=>{
    if (document.querySelector(".aboutImg")){
     let img = document.querySelector(".aboutImg");    
     img.src = images[images.length - 1];
-   }
-}
+   };
+};
 
 const buildDomString=()=>{
     let saleString="";
@@ -547,26 +501,25 @@ const buildDomString=()=>{
     <P class="shopNow">$ ${calculateDiscount(pantsArray[10].price)}</p>
     `;
     return saleString;
-}
+};
 
 const saleDetails=()=>{
     let model= document.querySelector(".saleDetails");
     model.innerHTML= buildDomString();
 
-}
+};
 
 const calculateDiscount=(price)=>{
 return (price * .8).toFixed(2);
 
-}
-
+};
 
 const addSaleImg=()=>{
     let img = document.querySelector(".saleImg");
     img.src = images[10];
     saleDetails();
 
-}
+};
 
 const changeImage=()=>
 {
@@ -582,7 +535,7 @@ const changeImage=()=>
 
     fadeImg(img, 1000, true);
     setTimeout("changeImage()", 5000);
-}
+};
 
 const fadeImg=(el, val, fade)=>{
     if(fade === true){
@@ -595,7 +548,7 @@ const fadeImg=(el, val, fade)=>{
         el.style.opacity = val / 100;
         setTimeout(function(){fadeImg(el, val, fade);}, 10);
     }
-}
+};
 const imageCarousel=()=>{
     pantsArray.forEach(pant => {
         images.push(pant.imgUrl);
@@ -603,26 +556,22 @@ const imageCarousel=()=>{
     })
     console.log(images);
     setTimeout("changeImage()", 1000);
-}
+};
 // ==============================Nikhil End=============================================
 
 const init = () => {
-
-    // imageCarousel(); //Nikhil
-    // addImageToAboutNate(); //Nikhil
-    // addSaleImg();//Nikhil   
-
-
-  
+  if (document.getElementById('index')){
+    imageCarousel(); //Nikhil
+    addImageToAboutNate(); //Nikhil
+    addSaleImg();//Nikhil  
+  };   
   if(document.getElementById('reviews')){
     reviewCardBuilder(customerReviews);
-  }
+  };
   if(document.getElementById('inventory')){
   buildInventoryPage(pantsArray);
-  }
-  clickEvents();
-  
+  };
+  clickEvents();  
 };
-
 
 init ();
