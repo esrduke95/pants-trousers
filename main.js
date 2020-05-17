@@ -111,8 +111,6 @@ const pantsArray = [
   },
 ];
 
-
-
 const customerReviews = [
   {
     name: "Jane Austen",
@@ -186,11 +184,6 @@ const customerReviews = [
   },
 ];
 
-// const printToDom1 = (divId, textToPrint) => {
-//   const selectedDiv1 = document.getElementById(divId);
-//   selectedDiv1.innerHTML = textToPrint;
-// }
-
 setTimeout(function() {
   $('#exampleModalCenter').modal();
 }, 10000);
@@ -198,7 +191,7 @@ setTimeout(function() {
 const printToDom1 = (divId, textToPrint) => {
   const selectedDiv1 = document.getElementById(divId);
   selectedDiv1.innerHTML = textToPrint;
-}
+};
 
 const buildInventoryPage = (pantsArray) => {
   let domString = '';
@@ -217,15 +210,14 @@ const buildInventoryPage = (pantsArray) => {
         </div>
     `;
     domString += '</div>'
-  }
+  };
 
-printToDom1("inventory", domString)
-}
+printToDom1("inventory", domString);
+};
 
 const printToDom = (selector,textToPrint) => {
   const selectedDiv = document.querySelector(`#${selector}`);
-  selectedDiv.innerHTML = textToPrint
-  
+  selectedDiv.innerHTML = textToPrint  
 };
 
 const reviewCardBuilder = (arr) => {
@@ -270,7 +262,7 @@ const clickEvents = () => {
     document.querySelector('#Century').addEventListener('click', filterStyleReviewEvent)
     document.querySelector('#Absurd').addEventListener('click', filterStyleReviewEvent)
     document.querySelector('#Cosplay').addEventListener('click', filterStyleReviewEvent)
-  }
+  };
   if(document.getElementById('inventory')){
     document.querySelector('#Thicc').addEventListener('click', filterInvSizeEvent);
     document.querySelector('#Chonky').addEventListener('click', filterInvSizeEvent);
@@ -282,9 +274,11 @@ const clickEvents = () => {
     document.querySelector('#Viking1').addEventListener('click', filterInvStyleEvent);
     document.querySelector('#Cosplay1').addEventListener('click', filterInvStyleEvent);
     document.querySelector('#allStyles').addEventListener('click', filterInvStyleEvent);
-  }
+  };
+  if(document.getElementById('modelOne')){
     document.querySelector('#submitOrderButton').addEventListener('click', submitOrderForm);
-
+    document.querySelector('#calculate').addEventListener('click', calculateOrderForm);
+  };
 };
 
 
@@ -314,7 +308,6 @@ const filterRatingEvent = (event) => {
   reviewCardBuilder(tempRating)
 };  
 
-
 const filterStyleReviewEvent = (event) => {
   
   const tempStyle = [];
@@ -333,26 +326,6 @@ const filterStyleReviewEvent = (event) => {
   }
   reviewCardBuilder(tempStyle)
 };
-
-
-// const filterStyleReviewEvent = (event) => {
-  
-//   const tempStyle = [];
-//   let style = "";
-
-//   if (event.target.id === 'Century' ) {
-//     style = "18th Century"
-//   } else {
-//     style = event.target.id
-//   }
-  
-//   for (let i = 0; i < customerReviews.length; i++) {
-//     if (customerReviews[i].style === style) {
-//       tempStyle.push(customerReviews[i])
-//     }    
-//   }
-//   reviewCardBuilder(tempStyle)
-// };
 
 const filterInvSizeEvent = (event) => {
   let clickId = ""
@@ -381,7 +354,7 @@ const filterInvSizeEvent = (event) => {
     }
   })
   buildInventoryPage(tempSizeCollection)
-}
+};
 
 const filterInvStyleEvent = (event) => {
   
@@ -411,29 +384,119 @@ const filterInvStyleEvent = (event) => {
   }
 
   buildInventoryPage(tempStyleCollection)
-}
-
+};
 
 const displayAllReviews = (event) => {
   reviewCardBuilder(customerReviews)
-}
+};
 
 // SD --- ORDER FORM SUBMIT BUTTON 
 const submitOrderForm = (event) => {
   document.getElementById('orderForm').reset();
 };
 
+const calculateOrderForm = (event) => {
+  
+  modelpriceOne = 0;
+  modelpriceTwo = 0;
+  modelpriceThree = 0;
+  modelpriceFour = 0;
+  shipping = 0;
+  
+  if (document.getElementById("quantityOne").value !==  "Quantity") {
+    for (let i = 0; i < pantsArray.length; i++){
+      if (pantsArray[i].model ===  document.getElementById("modelOne").value){
+        modelpriceOne = pantsArray[i].price
+      }
+    }
+  };
+  if (document.getElementById("quantityTwo").value !==  "Quantity") {
+    for (let i = 0; i < pantsArray.length; i++){
+      if (pantsArray[i].model ===  document.getElementById("modelTwo").value){
+        modelpriceTwo = pantsArray[i].price
+      }
+    }
+  };
+  if (document.getElementById("quantityThree").value !==  "Quantity") {
+    for (let i = 0; i < pantsArray.length; i++){
+      if (pantsArray[i].model ===  document.getElementById("modelThree").value){
+        modelpriceThree = pantsArray[i].price
+      }
+    }
+  };
+  if (document.getElementById("quantityFour").value !==  "Quantity") {
+    for (let i = 0; i < pantsArray.length; i++){
+      if (pantsArray[i].model ===  document.getElementById("modelFour").value){
+        modelpriceFour = pantsArray[i].price
+      }
+    }
+  };  
+
+  switch (document.getElementById("inputShipping").value) {
+    case 'First Class +$3.00': shipping = 3      
+      break;
+    case 'Priority +$7.95':  shipping = 7.95      
+      break;
+    case 'UPS +$13.00': shipping = 13      
+      break;
+    case 'Priority Express +$40.00':  shipping = 40
+      break;
+  }
+
+  let lineOne = 0;
+  let lineTwo = 0;
+  let lineThree = 0;
+  let lineFour = 0;
+
+  let modelOne = document.getElementById("modelOne").value;
+  let modelTwo = document.getElementById("modelTwo").value;
+  let modelThree = document.getElementById("modelThree").value;
+  let modelFour = document.getElementById("modelFour").value;
+  
+  if (modelOne !== "Style") {
+    if (document.getElementById("quantityOne").value !== 'Quantity') { 
+      lineOne = document.getElementById("quantityOne").value * modelpriceOne
+    }
+  };
+  if (modelTwo !== "Style") {
+    if (document.getElementById("quantityTwo").value !== 'Quantity') { 
+      lineTwo = document.getElementById("quantityTwo").value * modelpriceTwo
+    }
+  };
+  if (modelThree !== "Style") {
+    if (document.getElementById("quantityThree").value !== 'Quantity') { 
+      lineThree = document.getElementById("quantityThree").value * modelpriceThree
+    }
+  };
+  if (modelFour !== "Style") {
+    if (document.getElementById("quantityFour").value !== 'Quantity') { 
+      lineFour = document.getElementById("quantityFour").value * modelpriceFour
+    }
+  };
+  
+  
+  
+  let totalCost = lineOne + lineTwo + lineThree + lineFour + shipping 
+  
+  if (document.getElementById("inputCouponCode").value ==='UNICORNSAREREAL') {
+    totalCost = totalCost * .9
+  }
+
+  document.getElementById('inputPlaceholder').innerHTML = `$${totalCost.toFixed(2)}`
+
+};
+
+// ==============================Nikhil=============================================
 let images= [];
 let models= [];
-
-
 x = 0;
 
-
 const addImageToAboutNate=()=>{
+   if (document.querySelector(".aboutImg")){
     let img = document.querySelector(".aboutImg");    
     img.src = 'https://previews.123rf.com/images/elnur/elnur1311/elnur131100481/23538761-funny-man-with-trousers-isolated-on-white.jpg';
-}
+  };
+};
 
 const buildDomString=(randomNumber)=>{
     let saleString="";
@@ -448,19 +511,18 @@ const buildDomString=(randomNumber)=>{
     </div>
     `;
     return saleString;
-}
+};
 
 const saleDetails=(randomNumber)=>{
     let model= document.querySelector(".saleDetails");
     model.innerHTML= buildDomString(randomNumber);
 
-}
+};
 
 const calculateDiscount=(price)=>{
 return (price * .8).toFixed(2);
 
-}
-
+};
 
 const addSaleImg=()=>{
     let img = document.querySelector(".saleImg");
@@ -473,7 +535,7 @@ const addSaleImg=()=>{
 const pickRandomNumber=(num)=>{
   return Math.floor(Math.random() * Math.floor(num));
 
-}
+};
 
 const changeImage=()=>
 {
@@ -489,7 +551,7 @@ const changeImage=()=>
 
     fadeImg(img, 1000, true);
     setTimeout("changeImage()", 5000);
-}
+};
 
 const fadeImg=(el, val, fade)=>{
     if(fade === true){
@@ -502,7 +564,7 @@ const fadeImg=(el, val, fade)=>{
         el.style.opacity = val / 100;
         setTimeout(function(){fadeImg(el, val, fade);}, 10);
     }
-}
+};
 const imageCarousel=()=>{
     pantsArray.forEach(pant => {
         images.push(pant.imgUrl);
@@ -510,26 +572,22 @@ const imageCarousel=()=>{
     })
     console.log(images);
     setTimeout("changeImage()", 1000);
-}
-
+};
+// ==============================Nikhil End=============================================
 
 const init = () => {
-
+  if (document.getElementById('index')){
     imageCarousel(); //Nikhil
     addImageToAboutNate(); //Nikhil
-    addSaleImg();//Nikhil   
-
-
-  
+    addSaleImg();//Nikhil  
+  };   
   if(document.getElementById('reviews')){
     reviewCardBuilder(customerReviews);
-  }
+  };
   if(document.getElementById('inventory')){
   buildInventoryPage(pantsArray);
-  }
-  clickEvents();
-  
+  };
+  clickEvents();  
 };
 
-
-init ();
+init();

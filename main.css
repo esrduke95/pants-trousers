@@ -1,5 +1,6 @@
 body {
   background-color: white;
+  
 }
 
 .reviewHeader {
@@ -93,7 +94,13 @@ a.navLinksA:active {
   background-color: royalblue;
 }
 
-
+.totalDisplayed {
+  border-style: solid;
+  border-color: black;
+  border-width: 1px;
+  height: 50px;
+  width: 150px;
+}
 
 
 .container{
@@ -141,6 +148,7 @@ footer {
   flex-flow: row wrap;
   align-items: center;
   align-content: space-between;
+  margin-bottom: -500px;
 }
 
 ul.footerDThing {
