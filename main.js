@@ -281,6 +281,7 @@ const clickEvents = () => {
     document.querySelector('#allStyles').addEventListener('click', filterInvStyleEvent);
   }
     document.querySelector('#submitOrderButton').addEventListener('click', submitOrderForm);
+    document.querySelector('#calculate').addEventListener('click', calculateOrderForm);
 
 };
 
@@ -420,7 +421,102 @@ const submitOrderForm = (event) => {
   document.getElementById('orderForm').reset();
 };
 
+const calculateOrderForm = (event) => {
+  
+  modelpriceOne = "";
+  modelpriceTwo = "";
+  modelpriceThree = "";
+  modelpriceFour = "";
+  shipping = "";
+  
+  for (let i = 0; i < pantsArray.length; i++) {
+    if (document.getElementById("quantityOne").value ===  "Quantity") {
+      modelpriceOne = 0
+      
+    }  
+     else if (pantsArray[i].model ===  document.getElementById("modelOne").value) {
+        modelpriceOne = pantsArray[i].price
+      }
+  };
+  for (let i = 0; i < pantsArray.length; i++) {
+    if (document.getElementById("quantityTwo").value ===  "Quantity") {
+      modelpriceTwo = 0
+    }  
+     else if (pantsArray[i].model ===  document.getElementById("modelTwo").value) {
+      modelpriceTwo = pantsArray[i].price
+    }
+  };
+  for (let i = 0; i < pantsArray.length; i++) {
+    if (document.getElementById("quantityThree").value ===  "Quantity") {
+      modelpriceThree = 0
+    }  
+     else if (pantsArray[i].model ===  document.getElementById("modelThree").value) {
+      modelpriceThree = pantsArray[i].price
+    }
+  };
+  for (let i = 0; i < pantsArray.length; i++) {
+    if (document.getElementById("quantityFour").value ===  "Quantity") {
+      modelpriceFour = 0
+    }  
+     else if (pantsArray[i].model ===  document.getElementById("modelFour").value) {
+      modelpriceFour = pantsArray[i].price
+    }
+  };
+ 
+  switch (document.getElementById("inputShipping").value) {
+    case 'First Class +$3.00': shipping = 3      
+      break;
+    case 'Priority +$7.95':  shipping = 7.95      
+      break;
+    case 'UPS +$13.00': shipping = 13      
+      break;
+    case 'Priority Express +$40.00':  shipping = 40
+      break;
+  }
 
+  
+  // console.log(modelpriceTwo)
+  // console.log(modelpriceThree)
+  // console.log(shipping)
+  // console.log(modelpriceFour)
+
+  
+
+
+  let lineOne = "";
+  let lineTwo = "";
+  let lineThree = "";
+  let lineFour = "";
+
+
+  if ( document.getElementById("modelOne").value === "Style" ) {
+    lineOne = 0; console.log('hiya')
+  } else {
+    lineOne = document.getElementById("quantityOne").value * modelpriceOne
+  };
+  if ( document.getElementById("modelTwo").value === "Style" ) {
+    lineTwo = 0;
+  } else {
+    lineTwo = document.getElementById("quantityTwo").value * modelpriceTwo
+  };
+  if ( document.getElementById("modelThree").value === "Style" ) {
+    lineThree = 0;
+  } else {
+    lineThree = document.getElementById("quantityThree").value * modelpriceThree
+  };
+  if ( document.getElementById("modelFour").value === "Style" ) {
+    lineFour = 0;
+  } else {
+    lineFour = document.getElementById("quantityFour").value * modelpriceFour
+  };
+  
+  console.log(lineOne)
+  let totalCost = lineOne + lineTwo + lineThree + lineFour + shipping 
+  console.log(totalCost)
+
+  document.getElementById('inputPlaceholder').innerHTML = `$${totalCost}`
+
+}
 
 // ==============================Nikhil=============================================
 
@@ -435,8 +531,10 @@ x = 0;
 
 
 const addImageToAboutNate=()=>{
+   if (document.querySelector(".aboutImg")){
     let img = document.querySelector(".aboutImg");    
     img.src = images[images.length - 1];
+   }
 }
 
 const buildDomString=()=>{
@@ -510,9 +608,9 @@ const imageCarousel=()=>{
 
 const init = () => {
 
-    imageCarousel(); //Nikhil
-    addImageToAboutNate(); //Nikhil
-    addSaleImg();//Nikhil   
+    // imageCarousel(); //Nikhil
+    // addImageToAboutNate(); //Nikhil
+    // addSaleImg();//Nikhil   
 
 
   
