@@ -1,5 +1,37 @@
+
+
 body {
   background-color: white;
+  font-family: 'Roboto', sans-serif;
+}
+
+/*BUTTON STYLING : SD*/
+[type~="button"] {
+  font-family: 'Roboto Slab', serif;
+  background-color: #606066;
+}
+
+/*SALE ALERT MODAL STYLING : SD*/
+#exampleModalCenter {
+  font-family: 'Roboto Slab', serif;
+}
+
+.modal-body {
+  text-align: center;
+  background-color: #F7F9FC;
+}
+
+.modal-body-header {
+font-weight: bold;
+}
+
+.modal-footer {
+  justify-content: center;
+}
+
+.homePageBottomSection {
+  font-family: 'Roboto Slab', serif;
+  margin-top: 100px;
 }
 
 .reviewHeader {
@@ -23,6 +55,7 @@ body {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
+  font-family: 'Roboto Slab', serif;
   }
 
 .navLinks {
@@ -53,7 +86,7 @@ a.navLinksA:active {
 
 .reviewsBody {
   align-content: center;
-  background-color: grey;
+  background-color: #F7F9FC;
 }
 
 .reviewCardContainer{
@@ -86,15 +119,8 @@ a.navLinksA:active {
   color: black;
   text-align: center;
   font-family: 'Roboto Slab', serif;
+  font-weight: bold;
 }
-
-.form-group.col-8 {
-  color:red;
-  background-color: royalblue;
-}
-
-
-
 
 .container{
   text-align: center;
@@ -112,6 +138,15 @@ a.navLinksA:active {
 
 .btn-secondary {
   margin: 20px;
+}
+
+.jumbotron {
+  font-family: 'Roboto Slab', serif;
+  background-color: #F7F9FC;
+}
+
+#aboutNATEh1 {
+  font-family: 'Roboto Slab', serif;
 }
 
 #inventory {
@@ -141,16 +176,20 @@ footer {
   flex-flow: row wrap;
   align-items: center;
   align-content: space-between;
+  background-color: #F7F9FC;
+  margin-top: 100px;
 }
 
 ul.footerDThing {
   list-style-type: none;
   display: inline-flex;
   padding: 0;
+  margin: 10px;
 }
 
 .footerLinks {
   padding: 10px 10px;
+  margin: 10px;
 }
 
 a.footerLinksA:link {
@@ -169,6 +208,7 @@ a.footerLinksA:active {
 
 .address {
   padding-left: 20px;
+  margin: 10px;
 }
 
 .footerdiv {
@@ -178,6 +218,7 @@ a.footerLinksA:active {
 footer img {
   height: 40px;
   width: 40px;
+  margin: 10px;
 }
 /* =====================================Nikhil================================== */
 
@@ -264,7 +305,7 @@ img.aboutImg {
 }
 
 .homePageBottomSection {
-  background-color: lavender;
+  background-color: #F7F9FC;
   height: 150px;
   margin-top: auto;
   margin-bottom: auto;
