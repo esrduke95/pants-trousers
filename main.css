@@ -146,6 +146,7 @@ a.navLinksA:active {
 
 .btn-secondary {
   margin: 20px;
+  align-content: center;
 }
 
 .jumbotron {
@@ -315,8 +316,11 @@ img.aboutImg {
   margin-bottom: 100px;
   text-align: center;
   padding-top: 30px;
-
 }
+#placeOrderBtn {
+  justify-self: center;
+}
+
 .original{ 
   text-decoration: line-through; 
 }
